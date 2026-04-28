@@ -7,7 +7,10 @@ import HomePage from '../pages/HomePage.jsx'
 import AboutPage from '../pages/AboutPage.jsx'
 import ContactPage from '../pages/ContactPage.jsx'
 import ToolsPage from '../pages/ToolsPage.jsx'
+import BlogIndexPage from '../pages/BlogIndexPage.jsx'
 import BlogPostPage from '../pages/BlogPostPage.jsx'
+import PrivacyPage from '../pages/PrivacyPage.jsx'
+import DisclosurePage from '../pages/DisclosurePage.jsx'
 import AdminLoginPage from '../pages/AdminLoginPage.jsx'
 import AdminOperatorPage from '../pages/admin/AdminOperatorPage.jsx'
 import AdminOpenClawPage from '../pages/admin/AdminOpenClawPage.jsx'
@@ -40,9 +43,13 @@ return (
     <Routes>
       <Route element={<SiteFrame />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogIndexPage />} />
+        <Route path="/guides" element={<ToolsPage />} />
+        <Route path="/tools" element={<Navigate to="/guides" replace />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/tools" element={<ToolsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/disclosure" element={<DisclosurePage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/openclaw" element={<OpenClaw />} />
         <Route path="/revenue" element={<RevenueStreams />} />

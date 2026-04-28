@@ -19,9 +19,10 @@ setSubmitted(true)
 return (
 <article className="prose-page">
   <header className="prose-header">
-    <h1>Contact Us</h1>
+    <h1>Contact {SITE_DISPLAY_NAME}</h1>
     <p className="prose-lead">
-      Have a question, bug report, or partnership inquiry? We read every message and respond within 1-2 business days.
+      Reach out about editorial partnerships, sponsorships, site acquisitions,
+      or questions about the publishing systems documented here.
     </p>
   </header>
 
@@ -59,11 +60,11 @@ return (
   </section>
 
   <section className="prose-section">
-    <h2>Other Ways to Reach Us</h2>
+    <h2>Typical reasons to contact us</h2>
     <ul>
-      <li><b>Email:</b> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
-      <li><b>GitHub:</b> <a href="https://github.com/3000Studios" rel="noopener noreferrer">github.com/3000Studios</a></li>
-      <li><b>Response time:</b> 1-2 business days</li>
+      <li><b>Editorial:</b> article ideas, corrections, or category requests.</li>
+      <li><b>Advertising:</b> sponsorship and monetization conversations.</li>
+      <li><b>Operations:</b> automation, indexing, and publishing workflow questions.</li>
     </ul>
   </section>
 </article>

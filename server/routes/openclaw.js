@@ -167,7 +167,7 @@ router.post('/deploy', checkAuth, async (req, res) => {
     openclawDB.revenue.daily += Math.random() * 50
 
     res.json({
-      message: 'Website deployed successfully to myappai.net!',
+      message: 'Website deployed successfully to myappai.org!',
       success: true,
       timestamp: new Date().toISOString(),
     })

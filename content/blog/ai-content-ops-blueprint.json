@@ -1,0 +1,73 @@
+{
+  "updatedFor": "myappai",
+  "slug": "ai-content-ops-blueprint",
+  "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human",
+  "description": "A production guide to building a reliable AI publishing workflow with editorial review, SEO structure, monetization slots, and consistent brand voice.",
+  "excerpt": "This blueprint shows how MyAppAI.org structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.",
+  "publishedAt": "2026-04-28",
+  "author": "MyAppAI.org Editorial",
+  "category": "Content Operations",
+  "readTime": "8 min read",
+  "heroTag": "Publishing Systems",
+  "articleNumber": 1,
+  "tags": [
+    "ai publishing",
+    "automation",
+    "content operations"
+  ],
+  "video": {
+    "src": "https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4",
+    "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human background video",
+    "attribution": "Video source: Pexels free video library."
+  },
+  "sections": [
+    {
+      "heading": "Why this matters",
+      "body": "Topic intake should start with a small queue of categories, search intent, and a business goal for every article."
+    },
+    {
+      "heading": "How the workflow should be structured",
+      "body": "A publishable draft needs structure before prose: title, search angle, promised outcome, proof points, internal links, and the exact monetization surface."
+    },
+    {
+      "heading": "What to automate and what to review",
+      "body": "Automation works best when the site can regenerate indexes, sitemap entries, canonical metadata, and ads.txt without manual editing."
+    },
+    {
+      "heading": "Where this creates revenue leverage",
+      "body": "Editorial review should focus on factual accuracy, readability, and whether the article earns a real click instead of just filling a slot."
+    }
+  ],
+  "resources": [
+    {
+      "label": "Open the guides hub",
+      "href": "/guides"
+    },
+    {
+      "label": "Read the disclosure policy",
+      "href": "/disclosure"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "title": "Google AdSense Site Readiness Checklist for AI Publications",
+      "href": "/blog/google-adsense-site-readiness-checklist"
+    },
+    {
+      "title": "Build an Editorial Calendar for an AI Blog Without Burning Out",
+      "href": "/blog/editorial-calendar-for-ai-blogs"
+    },
+    {
+      "title": "How to Publish Affiliate Content Without Looking Like Thin Review Spam",
+      "href": "/blog/affiliate-content-without-thin-review-spam"
+    }
+  ],
+  "cta": {
+    "eyebrow": "Keep building",
+    "heading": "Turn the article into a repeatable publishing system",
+    "body": "Use MyAppAI.org as the operating manual for AI-driven content, monetization, and publishing workflows that stay readable and ad-safe.",
+    "primaryLabel": "Browse all articles",
+    "primaryHref": "/blog"
+  },
+  "updatedAt": "2026-04-28T19:43:36.889Z"
+}

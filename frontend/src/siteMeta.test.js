@@ -3,8 +3,8 @@ import { SITE_DOMAIN, SITE_DISPLAY_NAME, SITE_URL } from './siteMeta.js'
 
 describe('site meta', () => {
   it('uses the MyAppAI public brand', () => {
-    expect(SITE_DISPLAY_NAME).toBe('MyAppAI')
-    expect(SITE_DOMAIN).toBe('myappai.net')
-    expect(SITE_URL).toBe('https://myappai.net')
+    expect(SITE_DISPLAY_NAME).toBe('MyAppAI.org')
+    expect(SITE_DOMAIN).toBe('myappai.org')
+    expect(SITE_URL).toBe('https://myappai.org')
   })
 })

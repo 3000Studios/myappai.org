@@ -20,9 +20,9 @@ describe('SiteFrame', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByText('MyAppAI')).toBeInTheDocument()
+    expect(screen.getByText('MyAppAI.org')).toBeInTheDocument()
     expect(screen.getByRole('contentinfo')).toBeInTheDocument()
-    expect(screen.getByText(/Why MyAppAI/i)).toBeInTheDocument()
+    expect(screen.getByText(/Why MyAppAI\.org/i)).toBeInTheDocument()
     expect(screen.getByText('Loading live data...')).toBeInTheDocument()
   })
 })

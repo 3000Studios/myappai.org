@@ -1,0 +1,73 @@
+{
+  "updatedFor": "myappai",
+  "slug": "editorial-calendar-for-ai-blogs",
+  "title": "Build an Editorial Calendar for an AI Blog Without Burning Out",
+  "description": "A lean editorial calendar model for founders and solo operators who want consistent output, better internal linking, and room for automation.",
+  "excerpt": "A sustainable calendar is less about volume and more about repeatable series, category ownership, and automatic follow-up assets like indexes and email hooks.",
+  "publishedAt": "2026-04-26",
+  "author": "MyAppAI.org Editorial",
+  "category": "Growth",
+  "readTime": "6 min read",
+  "heroTag": "Editorial Planning",
+  "articleNumber": 3,
+  "tags": [
+    "ai publishing",
+    "automation",
+    "growth"
+  ],
+  "video": {
+    "src": "https://videos.pexels.com/video-files/4434242/4434242-hd_1920_1080_25fps.mp4",
+    "title": "Build an Editorial Calendar for an AI Blog Without Burning Out background video",
+    "attribution": "Video source: Pexels free video library."
+  },
+  "sections": [
+    {
+      "heading": "Why this matters",
+      "body": "Choose a few durable categories and publish clusters instead of random one-off topics."
+    },
+    {
+      "heading": "How the workflow should be structured",
+      "body": "Use a numbered archive so readers and search engines can see momentum at a glance."
+    },
+    {
+      "heading": "What to automate and what to review",
+      "body": "Pair each article with one primary CTA and one internal link destination. That prevents monetization from feeling bolted on."
+    },
+    {
+      "heading": "Where this creates revenue leverage",
+      "body": "Automation should generate the repetitive scaffolding, not erase the editorial point of view."
+    }
+  ],
+  "resources": [
+    {
+      "label": "Contact the editorial team",
+      "href": "/contact"
+    },
+    {
+      "label": "See article categories",
+      "href": "/guides"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human",
+      "href": "/blog/ai-content-ops-blueprint"
+    },
+    {
+      "title": "Google AdSense Site Readiness Checklist for AI Publications",
+      "href": "/blog/google-adsense-site-readiness-checklist"
+    },
+    {
+      "title": "How to Publish Affiliate Content Without Looking Like Thin Review Spam",
+      "href": "/blog/affiliate-content-without-thin-review-spam"
+    }
+  ],
+  "cta": {
+    "eyebrow": "Keep building",
+    "heading": "Turn the article into a repeatable publishing system",
+    "body": "Use MyAppAI.org as the operating manual for AI-driven content, monetization, and publishing workflows that stay readable and ad-safe.",
+    "primaryLabel": "Browse all articles",
+    "primaryHref": "/blog"
+  },
+  "updatedAt": "2026-04-28T19:43:36.889Z"
+}

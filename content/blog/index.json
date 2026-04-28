@@ -2,32 +2,85 @@
   "updatedFor": "myappai",
   "posts": [
     {
-      "slug": "how-to-automate-marketing-with-ai",
-      "title": "How how to automate marketing with AI strengthens an AI-run website stack",
-      "excerpt": "A practical look at using how to automate marketing with AI inside a local-model content and deployment workflow.",
-      "publishedAt": "2026-03-26",
-      "tags": ["ai", "automation", "how-to-automate-marketing-with-ai"]
+      "number": 1,
+      "slug": "ai-content-ops-blueprint",
+      "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human",
+      "excerpt": "This blueprint shows how MyAppAI.org structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.",
+      "publishedAt": "2026-04-28",
+      "category": "Content Operations",
+      "readTime": "8 min read",
+      "featured": true
     },
     {
-      "slug": "ai-marketing-automation-for-startups",
-      "title": "How AI marketing automation for startups strengthens an AI-run website stack",
-      "excerpt": "A practical look at using AI marketing automation for startups inside a local-model content and deployment workflow.",
-      "publishedAt": "2026-03-26",
-      "tags": ["ai", "automation", "ai-marketing-automation-for-startups"]
+      "number": 2,
+      "slug": "google-adsense-site-readiness-checklist",
+      "title": "Google AdSense Site Readiness Checklist for AI Publications",
+      "excerpt": "AdSense approval gets easier when the site looks finished, trustworthy, and easy to crawl. This checklist breaks the work into what matters on the page and in the repo.",
+      "publishedAt": "2026-04-27",
+      "category": "Monetization",
+      "readTime": "7 min read",
+      "featured": true
     },
     {
-      "slug": "ai-productivity-tools-comparison",
-      "title": "How AI productivity tools comparison strengthens an AI-run website stack",
-      "excerpt": "A practical look at using AI productivity tools comparison inside a local-model content and deployment workflow.",
-      "publishedAt": "2026-03-26",
-      "tags": ["ai", "automation", "ai-productivity-tools-comparison"]
+      "number": 3,
+      "slug": "editorial-calendar-for-ai-blogs",
+      "title": "Build an Editorial Calendar for an AI Blog Without Burning Out",
+      "excerpt": "A sustainable calendar is less about volume and more about repeatable series, category ownership, and automatic follow-up assets like indexes and email hooks.",
+      "publishedAt": "2026-04-26",
+      "category": "Growth",
+      "readTime": "6 min read",
+      "featured": true
     },
     {
-      "slug": "ai-automation",
-      "title": "How AI automation strengthens an AI-run website stack",
-      "excerpt": "A practical look at using AI automation inside a local-model content and deployment workflow.",
-      "publishedAt": "2026-03-26",
-      "tags": ["ai", "automation", "ai-automation"]
+      "number": 4,
+      "slug": "affiliate-content-without-thin-review-spam",
+      "title": "How to Publish Affiliate Content Without Looking Like Thin Review Spam",
+      "excerpt": "The best affiliate pages earn trust first. Comparison logic, disclosures, and clear buyer guidance matter more than stuffing buttons onto a weak article.",
+      "publishedAt": "2026-04-25",
+      "category": "Monetization",
+      "readTime": "7 min read",
+      "featured": false
+    },
+    {
+      "number": 5,
+      "slug": "seo-architecture-for-automation-sites",
+      "title": "SEO Architecture for Automation Sites: Categories, Internal Links, and Crawl Signals",
+      "excerpt": "Good SEO architecture is usually visible in navigation, archives, and metadata before it is visible in rankings. This guide shows the structure MyAppAI.org uses.",
+      "publishedAt": "2026-04-24",
+      "category": "SEO",
+      "readTime": "9 min read",
+      "featured": false
+    },
+    {
+      "number": 6,
+      "slug": "newsletter-hooks-for-automated-media-sites",
+      "title": "Newsletter Hooks for Automated Media Sites That Need Subscribers, Not Just Pageviews",
+      "excerpt": "Subscriber growth improves when the opt-in promise is specific, contextual, and tied to the article category the reader is already consuming.",
+      "publishedAt": "2026-04-23",
+      "category": "Audience",
+      "readTime": "5 min read",
+      "featured": false
+    },
+    {
+      "number": 7,
+      "slug": "human-review-for-ai-generated-articles",
+      "title": "Human Review for AI-Generated Articles: The Minimum Bar Before You Hit Publish",
+      "excerpt": "Automation is powerful, but publishing without review usually creates the exact thin content problems that ad platforms and readers both reject.",
+      "publishedAt": "2026-04-22",
+      "category": "Quality Control",
+      "readTime": "6 min read",
+      "featured": false
+    },
+    {
+      "number": 8,
+      "slug": "ad-layouts-that-protect-reader-trust",
+      "title": "Ad Layouts That Protect Reader Trust on Content-Heavy Sites",
+      "excerpt": "Reader trust drops fast when a page feels stacked with interruptions. The best ad layouts leave the article in control and keep density predictable.",
+      "publishedAt": "2026-04-21",
+      "category": "Monetization",
+      "readTime": "6 min read",
+      "featured": false
     }
-  ]
+  ],
+  "updatedAt": "2026-04-28T19:43:36.889Z"
 }

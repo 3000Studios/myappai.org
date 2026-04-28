@@ -15,9 +15,24 @@ export default function BlogPostPage() {
   return (
     <article className="stack-2xl">
       <section className="section-card article-hero">
-        <span className="meta-line">{post.publishedAt}</span>
+        <span className="meta-line">
+          #{post.articleNumber ?? '00'} · {post.category} · {post.publishedAt}
+        </span>
         <PrismHeadline text={post.title} />
         <p className="section-intro">{post.excerpt}</p>
+        {post.video?.src ? (
+          <div className="article-video-frame">
+            <video
+              className="article-video-frame__video"
+              src={post.video.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <div className="article-video-frame__overlay" />
+          </div>
+        ) : null}
       </section>
 
       <section className="stack-xl article-stack">
@@ -31,6 +46,25 @@ export default function BlogPostPage() {
           </React.Fragment>
         ))}
       </section>
+
+      {post.resources?.length ? (
+        <section className="section-card stack-md">
+          <span className="meta-line">Next links</span>
+          <h2>Related paths</h2>
+          <div className="editorial-grid editorial-grid--two">
+            {post.resources.map((resource) => (
+              <Link
+                key={resource.href}
+                className="content-card editorial-glow-card"
+                to={resource.href}
+              >
+                <strong>{resource.label}</strong>
+                <p>Continue through the site architecture from here.</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {post.cta ? (
         <section className="section-card cta-band">

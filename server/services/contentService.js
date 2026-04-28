@@ -29,7 +29,7 @@ const DEFAULT_FILES = {
       ],
       heroStats: [
         { label: 'Primary route', value: '/admin/operator' },
-        { label: 'Deploy target', value: 'myappai.net' },
+        { label: 'Deploy target', value: 'myappai.org' },
         { label: 'Integrations', value: 'Cloudflare · GitHub · OpenAI' },
       ],
       updatedAt: '2026-03-25T00:00:00.000Z',

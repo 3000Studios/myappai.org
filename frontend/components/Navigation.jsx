@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { publicNavItems } from '../src/siteChrome.js'
 import './Navigation.css'
 
 const Navigation = () => {
@@ -16,12 +17,10 @@ useEffect(() => {
   return () => window.removeEventListener('scroll', handleScroll)
 }, [])
 
-const navItems = [
-  { path: '/', label: 'Home', icon: '🏠' },
-  { path: '/blog', label: 'Blog', icon: '📝' },
-  { path: '/about', label: 'About', icon: '💡' },
-  { path: '/contact', label: 'Contact', icon: '✉️' },
-]
+const navItems = publicNavItems.map((item) => ({
+  path: item.to,
+  label: item.label,
+}))
 
 const isActive = (path) => {
   if (path === '/') return location.pathname === '/'
@@ -43,9 +42,9 @@ return (
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
           >
-            🚀
+            ◎
           </motion.div>
-          <span className="brand-text">MyAppAI</span>
+          <span className="brand-text">MyAppAI.org</span>
         </Link>
       </div>
 
@@ -77,7 +76,7 @@ return (
       </div>
 
       <div className="nav-actions">
-        <Link to="/admin/login" className="nav-admin-btn">Admin</Link>
+        <Link to="/disclosure" className="nav-admin-btn">Disclosure</Link>
         <motion.button
           className="mobile-menu-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -133,7 +132,6 @@ return (
                   className="mobile-nav-link"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="mobile-nav-icon">{item.icon}</span>
                   <span className="mobile-nav-label">{item.label}</span>
                 </Link>
               </motion.div>
@@ -145,12 +143,11 @@ return (
               transition={{ delay: 0.2 }}
             >
               <Link
-                to="/admin/login"
+                to="/disclosure"
                 className="mobile-nav-link mobile-admin-link"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">⚙️</span>
-                <span className="mobile-nav-label">Admin</span>
+                <span className="mobile-nav-label">Disclosure</span>
               </Link>
             </motion.div>
           </div>

@@ -2,54 +2,53 @@ import React from 'react'
 import { SUPPORT_EMAIL } from '../src/siteMeta.js'
 
 export default function AboutPage() {
-return (
-  <article className="prose-page">
-    <header className="prose-header">
-      <h1>About MyAppAI</h1>
-      <p className="prose-lead">
-        MyAppAI is a browser-based operator platform built for developers, indie hackers, and small teams who want to research, plan, edit repositories, and deploy live sites from one authenticated workspace.
-      </p>
-    </header>
+  return (
+    <article className="prose-page">
+      <header className="prose-header">
+        <h1>About MyAppAI.org</h1>
+        <p className="prose-lead">
+          MyAppAI.org is a publishing brand focused on AI content systems,
+          editorial automation, monetization strategy, and the practical work
+          required to keep an ad-ready site useful.
+        </p>
+      </header>
 
-    <section className="prose-section">
-      <h2>What We Build</h2>
-      <p>
-        We build tools that collapse the gap between idea and live product. MyAppAI gives you a single control plane where you can browse for source-backed answers, write and review code changes, manage repository content safely, and trigger live deployments to Cloudflare Pages or any static host.
-      </p>
-      <p>
-        Our platform is designed around one core belief: you should not need to juggle a dozen tabs, tools, and CLI windows to keep a site running. MyAppAI brings research, code, and deployment into one authenticated session.
-      </p>
-    </section>
+      <section className="prose-section">
+        <h2>What the site covers</h2>
+        <p>
+          We publish implementation-focused articles on AI-assisted blogging,
+          SEO architecture, content operations, audience growth, affiliate
+          strategy, and Google AdSense readiness. The goal is to help operators
+          build sites that look finished, publish consistently, and monetize
+          without degrading trust.
+        </p>
+      </section>
 
-    <section className="prose-section">
-      <h2>Who It's For</h2>
-      <ul>
-        <li><b>Indie developers and solopreneurs</b> who ship fast and need everything in one place</li>
-        <li><b>Small dev teams</b> who want safe, reviewable repository operations without accidental breaks</li>
-        <li><b>AI builders</b> exploring how to integrate LLMs into real development workflows</li>
-        <li><b>Content creators and marketers</b> who need to update sites without touching code directly</li>
-      </ul>
-    </section>
+      <section className="prose-section">
+        <h2>How the site is structured</h2>
+        <p>
+          The public archive is generated from source content inside the repo.
+          During builds, the blog index, ads.txt, robots.txt, and sitemap are
+          regenerated so the site stays synchronized as new posts are added.
+        </p>
+      </section>
 
-    <section className="prose-section">
-      <h2>Our Stack</h2>
-      <p>
-        MyAppAI is built on open, proven technology: React for the frontend, Cloudflare Pages for deployment, GitHub for version control, and OpenAI and Gemini for AI orchestration. Everything is designed to be auditable, reversible, and fast.
-      </p>
-    </section>
+      <section className="prose-section">
+        <h2>Who this is for</h2>
+        <ul>
+          <li>Publishers building AI-assisted content sites.</li>
+          <li>Operators preparing a site for AdSense review.</li>
+          <li>Founders who want monetization and SEO systems, not vague advice.</li>
+          <li>Teams turning one site into a repeatable media asset.</li>
+        </ul>
+      </section>
 
-    <section className="prose-section">
-      <h2>Built by 3000Studios</h2>
-      <p>
-        MyAppAI is a product of <a href="https://github.com/3000Studios" rel="noopener noreferrer">3000Studios</a>, an independent software studio focused on AI-powered developer tools, automation platforms, and open-source projects. We believe the best software is built by small teams moving fast with the right tools.
-      </p>
-    </section>
-
-    <section className="prose-cta">
-      <p>
-        Questions or feedback? Reach us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
-      </p>
-    </section>
-  </article>
-)
+      <section className="prose-cta">
+        <p>
+          Questions or editorial inquiries can be sent to{' '}
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        </p>
+      </section>
+    </article>
+  )
 }

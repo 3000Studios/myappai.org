@@ -142,9 +142,11 @@ const filtered = activeCategory === 'All'
 return (
   <article className="prose-page tools-page">
     <header className="prose-header">
-      <h1>Best AI Tools for Developers in 2025</h1>
+      <h1>Guides, tool picks, and monetization references</h1>
       <p className="prose-lead">
-        A curated directory of the AI tools we actually use and recommend — for coding, writing, deployment, and automation. Updated regularly.
+        Use this hub to jump into the tool categories that matter most when
+        building an automated publishing site: writing, infrastructure,
+        workflow automation, and monetization support.
       </p>
     </header>
 
@@ -192,7 +194,7 @@ return (
     ))}
 
     <section className="prose-section tools-disclosure">
-      <p><em>Disclosure: Some links on this page are affiliate links. If you sign up through our link, we may earn a commission at no extra cost to you. We only recommend tools we genuinely use or have evaluated.</em></p>
+      <p><em>Disclosure: Some outbound links on this page may become affiliate links as the site expands its monetization stack. Any such relationship will be clearly disclosed.</em></p>
     </section>
   </article>
 )

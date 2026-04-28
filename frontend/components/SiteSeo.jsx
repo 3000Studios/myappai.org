@@ -9,6 +9,7 @@ import {
   SITE_URL,
   WWW_SITE_URL,
 } from '../src/siteMeta.js'
+import { blogLookup } from '../src/siteData.js'
 
 function ensureMeta(selector, attributes) {
   let element = document.head.querySelector(selector)
@@ -78,22 +79,18 @@ function getSeoForPath(pathname) {
   if (normalizedPath === '/') {
     return {
       ...base,
-      title: `${SITE_DISPLAY_NAME} | Research, operate, and deploy from one workspace`,
+      title: `${SITE_DISPLAY_NAME} | Automated blogs, AI publishing systems, and ad-ready growth`,
       description:
-        'MyAppAI gives you one authenticated operator workspace for research, code changes, safe repository edits, and live deployment.',
+        'MyAppAI.org publishes practical systems for automated blogs, AI-assisted editorial workflows, SEO structure, and Google AdSense readiness.',
+      adsEligible: true,
       schemas: [
         {
           '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
+          '@type': 'WebSite',
           name: SITE_DISPLAY_NAME,
-          applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Web',
           description: SITE_DEFAULT_DESCRIPTION,
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-          },
+          url: SITE_URL,
+          inLanguage: 'en-US',
           creator: {
             '@type': 'Organization',
             name: SITE_DISPLAY_NAME,
@@ -102,6 +99,62 @@ function getSeoForPath(pathname) {
           },
         },
       ],
+    }
+  }
+
+  if (normalizedPath === '/blog') {
+    return {
+      ...base,
+      title: `${SITE_DISPLAY_NAME} | Automated blog archive`,
+      description:
+        'Browse the numbered article archive covering AI publishing, monetization, audience growth, and ad-ready site operations.',
+      adsEligible: true,
+    }
+  }
+
+  if (normalizedPath.startsWith('/blog/')) {
+    const slug = normalizedPath.replace('/blog/', '')
+    const article = blogLookup[slug]
+
+    if (!article) {
+      return {
+        ...base,
+        title: `${SITE_DISPLAY_NAME} | Article not found`,
+        noindex: true,
+      }
+    }
+
+    return {
+      ...base,
+      title: `${article.title} | ${SITE_DISPLAY_NAME}`,
+      description: article.description ?? article.excerpt ?? SITE_DEFAULT_DESCRIPTION,
+      adsEligible: true,
+      schemas: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: article.title,
+          description: article.description ?? article.excerpt,
+          datePublished: article.publishedAt,
+          author: {
+            '@type': 'Organization',
+            name: article.author ?? SITE_DISPLAY_NAME,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: SITE_DISPLAY_NAME,
+            url: SITE_URL,
+          },
+        },
+      ],
+    }
+  }
+
+  if (['/guides', '/about', '/contact', '/privacy', '/disclosure'].includes(normalizedPath)) {
+    return {
+      ...base,
+      noindex: false,
+      adsEligible: ['/guides', '/about'].includes(normalizedPath),
     }
   }
 

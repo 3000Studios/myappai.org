@@ -337,8 +337,8 @@ function buildPublicSiteSnapshot(env) {
     analytics: buildAnalyticsSnapshot(),
     brand: {
       displayName: env.APP_NAME ?? 'MyAppAI',
-      url: env.SITE_URL ?? 'https://myappai.net',
-      category: 'AI operator platform for research, code, and deployment',
+      url: env.SITE_URL ?? 'https://myappai.org',
+      category: 'AI publishing systems, automated blogs, and monetization workflows',
     },
     proof: {
       liveDataOnly: false,
@@ -778,7 +778,7 @@ function buildTelegramWelcomeReply(env) {
 }
 
 function buildTelegramStatusReply(env) {
-  return `${String(env.APP_NAME ?? 'myappai').trim() || 'myappai'} is online.\nProvider: ${getPublicAssistantProvider(env)}\nModel: ${getOllamaModel(env)}\nSite: ${env.SITE_URL ?? 'https://myappai.net'}`
+  return `${String(env.APP_NAME ?? 'myappai').trim() || 'myappai'} is online.\nProvider: ${getPublicAssistantProvider(env)}\nModel: ${getOllamaModel(env)}\nSite: ${env.SITE_URL ?? 'https://myappai.org'}`
 }
 
 async function sendTelegramMessage(env, { chatId, text }) {
@@ -898,7 +898,7 @@ function buildDeploymentsSnapshot() {
         id: `edge-${Date.now()}`,
         status: 'live',
         branch: 'main',
-        message: 'Pages edge API is active on myappai.net.',
+        message: 'Pages edge API is active on myappai.org.',
         finishedAt: new Date().toISOString(),
       },
     ],
@@ -978,7 +978,7 @@ function buildUnavailableCommandResponse(request, env) {
       'Live operator actions need a repo-backed runtime before they can edit files or deploy.',
     unavailableReason: getCommandUnavailableReason(request, env),
     nextSteps: [
-      'Keep using myappai.net for sign-in and dashboard access.',
+      'Keep using myappai.org for sign-in and dashboard access.',
       'Point ADMIN_API_ORIGIN to an external repo-backed operator API for file edits and deploy actions.',
     ],
     deployment: null,

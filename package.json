@@ -6,11 +6,11 @@
   "main": "server/index.js",
   "scripts": {
     "prepare": "node scripts/run-husky.js",
-    "predev": "node scripts/generate-seo-assets.js",
+    "predev": "node scripts/generate-editorial-content.js && node scripts/generate-seo-assets.js",
     "dev": "concurrently --kill-others-on-fail --names \"server,frontend\" --prefix-colors \"cyan,magenta\" \"npm:dev:server\" \"npm:dev:frontend\"",
     "dev:frontend": "vite",
     "dev:server": "node --watch server/index.js",
-    "prebuild": "node scripts/generate-seo-assets.js",
+    "prebuild": "node scripts/generate-editorial-content.js && node scripts/generate-seo-assets.js",
     "build": "vite build",
     "lint": "eslint . --cache --cache-location .cache/eslint",
     "lint:fix": "eslint . --fix --cache --cache-location .cache/eslint",
@@ -47,12 +47,12 @@
   },
   "keywords": [
     "myappai",
-    "myappai.net",
+    "myappai.org",
     "operator",
     "deployment",
     "automation"
   ],
-  "homepage": "https://myappai.net/",
+  "homepage": "https://myappai.org/",
   "repository": {
     "type": "git",
     "url": "https://github.com/3000Studios/myappai.git"
@@ -62,7 +62,7 @@
   },
   "author": "3000Studios",
   "license": "UNLICENSED",
-  "description": "MyAppAI operator platform for browser-based research, repository changes, and deployment workflows.",
+  "description": "MyAppAI.org is an AI publishing and monetization playbook focused on automated blogs, editorial systems, and AdSense-ready site operations.",
   "lint-staged": {
     "*.{js,jsx,json,md,css}": [
       "prettier --write"
@@ -103,10 +103,13 @@
     "concurrently": "^9.2.1",
     "cross-env": "^10.1.0",
     "eslint": "^10.0.3",
+    "eslint-config-next": "^16.2.4",
+    "eslint-plugin-n": "^17.24.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "jsdom": "^27.0.0",
     "lint-staged": "^16.2.1",
+    "next": "^16.2.4",
     "playwright": "^1.58.2",
     "prettier": "^3.8.1",
     "rollup-plugin-visualizer": "^6.0.3",

@@ -8,17 +8,43 @@ const contentPagesDir = path.join(repoRoot, 'content', 'pages')
 const contentBlogDir = path.join(repoRoot, 'content', 'blog')
 const contentProductsDir = path.join(repoRoot, 'content', 'products')
 
-const SITE_URL = process.env.SITE_URL || 'https://myappai.net'
+const SITE_URL = process.env.SITE_URL || 'https://myappai.org'
 const ADSENSE_PUBLISHER_ID =
   process.env.ADSENSE_PUBLISHER_ID ||
   process.env.ADSENSE_PUBLISHER ||
   'pub-5800977493749262'
 
 async function collectRoutes() {
-  void contentPagesDir
-  void contentBlogDir
-  void contentProductsDir
-  return ['/']
+  const staticRoutes = [
+    '/',
+    '/blog',
+    '/guides',
+    '/about',
+    '/contact',
+    '/privacy',
+    '/disclosure',
+  ]
+
+  const [pageEntries, blogEntries] = await Promise.all([
+    fs.readdir(contentPagesDir, { withFileTypes: true }).catch(() => []),
+    fs.readdir(contentBlogDir, { withFileTypes: true }).catch(() => []),
+  ])
+
+  const pageRoutes = pageEntries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+    .map((entry) => entry.name.replace('.json', ''))
+    .filter(
+      (slug) => !['homepage', 'theme', 'platform', 'pricing'].includes(slug)
+    )
+    .map((slug) => `/${slug}`)
+
+  const blogRoutes = blogEntries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+    .map((entry) => entry.name.replace('.json', ''))
+    .filter((slug) => slug !== 'index')
+    .map((slug) => `/blog/${slug}`)
+
+  return [...new Set([...staticRoutes, ...pageRoutes, ...blogRoutes])]
 }
 
 async function generateSitemap() {

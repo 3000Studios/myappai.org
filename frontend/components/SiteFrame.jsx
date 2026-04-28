@@ -38,15 +38,14 @@ export default function SiteFrame() {
       <footer className="site-footer">
         <div className="site-footer__grid">
           <section className="site-footer__brand">
-            <span className="eyebrow">Why MyAppAI</span>
+            <span className="eyebrow">Why MyAppAI.org</span>
             <h2>
-              One operator surface for browsing, planning, coding, shipping, and
-              keeping your site live.
+              A publishing system for AI blogs that need structure, trust, and
+              monetization discipline.
             </h2>
             <p>
-              MyAppAI turns plain-language instructions into safe repository
-              changes, research-backed updates, and deployment workflows you can
-              manage from anywhere.
+              MyAppAI.org documents the workflows behind automated articles,
+              archive generation, SEO scaffolding, and ad-ready public pages.
             </p>
           </section>
 
@@ -63,23 +62,19 @@ export default function SiteFrame() {
           </section>
 
           <section className="site-footer__cta">
-            <span className="eyebrow">Start operating</span>
+            <span className="eyebrow">Keep reading</span>
             <p>
-              Sign in to the operator workspace to manage content, run guided
-              research, refine UI, and trigger live deploys from the same admin
-              page.
+              Start with the archive if you want the fastest path into the
+              publishing system, or review the policy pages if you are preparing
+              your own site for monetization.
             </p>
             <div className="hero__actions">
-              <Link className="button button--primary" to="/admin/login">
-                Open operator
+              <Link className="button button--primary" to="/blog">
+                Open archive
               </Link>
-              <a
-                className="button button--ghost"
-                href={REPOSITORY_URL}
-                rel="noreferrer"
-              >
-                Inspect source
-              </a>
+              <Link className="button button--ghost" to="/privacy">
+                Privacy policy
+              </Link>
             </div>
           </section>
         </div>

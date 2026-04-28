@@ -1,0 +1,73 @@
+{
+  "updatedFor": "myappai",
+  "slug": "google-adsense-site-readiness-checklist",
+  "title": "Google AdSense Site Readiness Checklist for AI Publications",
+  "description": "The practical checklist for getting an AI-focused content site structurally ready for AdSense review: original content, policy pages, crawlability, UX, and ad-safe layouts.",
+  "excerpt": "AdSense approval gets easier when the site looks finished, trustworthy, and easy to crawl. This checklist breaks the work into what matters on the page and in the repo.",
+  "publishedAt": "2026-04-27",
+  "author": "MyAppAI.org Editorial",
+  "category": "Monetization",
+  "readTime": "7 min read",
+  "heroTag": "Ad Readiness",
+  "articleNumber": 2,
+  "tags": [
+    "ai publishing",
+    "automation",
+    "monetization"
+  ],
+  "video": {
+    "src": "https://videos.pexels.com/video-files/7989672/7989672-hd_1920_1080_25fps.mp4",
+    "title": "Google AdSense Site Readiness Checklist for AI Publications background video",
+    "attribution": "Video source: Pexels free video library."
+  },
+  "sections": [
+    {
+      "heading": "Why this matters",
+      "body": "Every page should have a unique title, useful body copy, a clear purpose, and no template-looking filler."
+    },
+    {
+      "heading": "How the workflow should be structured",
+      "body": "Required trust pages include About, Contact, Privacy, and disclosure language for ads or affiliate placement."
+    },
+    {
+      "heading": "What to automate and what to review",
+      "body": "The public experience needs fast navigation, readable contrast, working mobile layouts, and no dead-end routes."
+    },
+    {
+      "heading": "Where this creates revenue leverage",
+      "body": "Ad units should support the content instead of burying it. A strong reading experience is part of policy readiness."
+    }
+  ],
+  "resources": [
+    {
+      "label": "View privacy policy",
+      "href": "/privacy"
+    },
+    {
+      "label": "Browse the latest posts",
+      "href": "/blog"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human",
+      "href": "/blog/ai-content-ops-blueprint"
+    },
+    {
+      "title": "Build an Editorial Calendar for an AI Blog Without Burning Out",
+      "href": "/blog/editorial-calendar-for-ai-blogs"
+    },
+    {
+      "title": "How to Publish Affiliate Content Without Looking Like Thin Review Spam",
+      "href": "/blog/affiliate-content-without-thin-review-spam"
+    }
+  ],
+  "cta": {
+    "eyebrow": "Keep building",
+    "heading": "Turn the article into a repeatable publishing system",
+    "body": "Use MyAppAI.org as the operating manual for AI-driven content, monetization, and publishing workflows that stay readable and ad-safe.",
+    "primaryLabel": "Browse all articles",
+    "primaryHref": "/blog"
+  },
+  "updatedAt": "2026-04-28T19:43:36.889Z"
+}
