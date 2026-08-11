@@ -2,12 +2,14 @@ import React from 'react'
 import { ADSENSE_CLIENT_ID, ADS_ENABLED } from '../src/siteMeta.js'
 
 export default function AdSenseSlot({
-  slot = 'content-inline',
-  label = 'Sponsored',
+  slot = '',
+  label = 'Advertisement',
   className = '',
 }) {
+  const hasRealSlot = /^\d+$/u.test(String(slot))
+
   React.useEffect(() => {
-    if (!ADS_ENABLED || !ADSENSE_CLIENT_ID || typeof window === 'undefined') {
+    if (!ADS_ENABLED || !ADSENSE_CLIENT_ID || !hasRealSlot || typeof window === 'undefined') {
       return
     }
 
@@ -26,14 +28,21 @@ export default function AdSenseSlot({
   return (
     <aside className={`ad-slot ${className}`.trim()} aria-label={label}>
       <div className="ad-slot__label">{label}</div>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client={ADSENSE_CLIENT_ID}
-        data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
+      {hasRealSlot ? (
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client={ADSENSE_CLIENT_ID}
+          data-ad-slot={slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      ) : (
+        <div className="ad-slot__placeholder">
+          <strong>AdSense-ready space</strong>
+          <span>Visible display inventory for approved Google AdSense units or direct sponsors.</span>
+        </div>
+      )}
     </aside>
   )
 }

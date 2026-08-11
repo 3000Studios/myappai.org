@@ -1,4 +1,5 @@
 import React from 'react'
+import HeroVideo from '../components/HeroVideo.jsx'
 import { SITE_DISPLAY_NAME, SUPPORT_EMAIL } from '../src/siteMeta.js'
 
 export default function AboutPage() {
@@ -12,6 +13,8 @@ export default function AboutPage() {
           required to keep an ad-ready site useful.
         </p>
       </header>
+
+      <HeroVideo compact eyebrow="About video" title="A field guide with a working purpose." body="MyAppAI exists to teach and monetize responsible AI publishing systems." />
 
       <section className="prose-section">
         <h2>What the site covers</h2>

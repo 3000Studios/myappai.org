@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, Mail, Sparkles } from 'lucide-react'
+import AdSenseSlot from '../components/AdSenseSlot.jsx'
+import HeroVideo from '../components/HeroVideo.jsx'
+import MonetizationPanel from '../components/MonetizationPanel.jsx'
 import { blogIndex, blogPosts } from '../src/siteData.js'
 import './HomePage.css'
 
@@ -29,7 +32,7 @@ export default function HomePage() {
         <div className="pub-hero__copy">
           <p className="pub-kicker"><Sparkles size={15} /> The independent guide to AI publishing</p>
           <h1>Build a media business people trust.</h1>
-          <p className="pub-hero__lede">MyAppAI is a practical field guide for creators and small teams building useful, sustainable sites with AI—without sacrificing the human judgment that earns an audience.</p>
+          <p className="pub-hero__lede">MyAppAI teaches creators how to turn AI-assisted content into a real publishing system: plan topics, review output, grow search traffic, place ads, package offers, and build revenue without losing reader trust.</p>
           <div className="pub-actions">
             <Link className="pub-button pub-button--dark" to="/blog">Start reading <ArrowRight size={17} /></Link>
             <Link className="pub-text-link" to="/guides">Explore the playbooks <ArrowRight size={16} /></Link>
@@ -38,7 +41,16 @@ export default function HomePage() {
         </div>
         <aside className="pub-hero__edition" aria-label="Latest issue">
           <div className="edition-topline"><span>THE OPERATOR</span><span>ISSUE 01</span></div>
-          <div className="edition-mark">M</div>
+          <div className="edition-cube" aria-label="Rotating MyAppAI weekly briefing block">
+            <div className="edition-cube__inner">
+              <span className="edition-cube__face edition-cube__face--front">M</span>
+              <span className="edition-cube__face edition-cube__face--back">AI</span>
+              <span className="edition-cube__face edition-cube__face--right">SEO</span>
+              <span className="edition-cube__face edition-cube__face--left">OPS</span>
+              <span className="edition-cube__face edition-cube__face--top">MEDIA</span>
+              <span className="edition-cube__face edition-cube__face--bottom">ADS</span>
+            </div>
+          </div>
           <p className="edition-label">THE WEEKLY BRIEFING</p>
           <h2>The system behind a site that compounds.</h2>
           <p>How to build the editorial, search, and revenue foundations before you publish at scale.</p>
@@ -46,7 +58,21 @@ export default function HomePage() {
         </aside>
       </section>
 
-      <section className="pub-marquee" aria-label="What we cover"><span>Editorial systems</span><span>Search strategy</span><span>Creator revenue</span><span>AdSense readiness</span><span>Audience ownership</span></section>
+      <section className="pub-marquee" aria-label="What we cover">
+        <div className="pub-marquee__track">
+          {[...Array(2)].map((_, groupIndex) => (
+            <div className="pub-marquee__group" key={groupIndex} aria-hidden={groupIndex === 1}>
+              <span>Editorial systems</span><span>Search strategy</span><span>Creator revenue</span><span>AdSense readiness</span><span>Audience ownership</span><span>Affiliate reviews</span><span>Launch checklists</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <HeroVideo
+        eyebrow="Hero video system"
+        title="A moving map of content, search, review, and revenue."
+        body="Every major public page now carries the same live wallpaper layer so the site feels like one active operating system."
+      />
 
       <section className="pub-section pub-intro-grid">
         <div><p className="pub-kicker">A better way to grow</p><h2>Less content noise. More durable value.</h2></div>
@@ -64,10 +90,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <AdSenseSlot className="ad-slot--wide" />
+
       <section className="pub-revenue">
         <div><p className="pub-kicker">Revenue, with restraint</p><h2>Multiple income streams. One trusted relationship.</h2><p>We teach a balanced model: respectful advertising, transparently disclosed recommendations, paid tools and templates, sponsorships that fit the audience, and an email list you own.</p><Link className="pub-button pub-button--light" to="/revenue">Explore revenue systems <ArrowRight size={17} /></Link></div>
         <ol><li><span>01</span><div><strong>Useful free content</strong><p>Build a library worth returning to.</p></div></li><li><span>02</span><div><strong>Reader-supported offers</strong><p>Templates, deep dives, and tools that save time.</p></div></li><li><span>03</span><div><strong>Aligned partnerships</strong><p>Affiliates and sponsors with plain-language disclosures.</p></div></li></ol>
       </section>
+
+      <MonetizationPanel />
 
       <section className="pub-section pub-latest"><div className="pub-section-heading"><div><p className="pub-kicker">From the desk</p><h2>Fresh field notes.</h2></div><Link className="pub-text-link" to="/blog">Browse the archive <ArrowRight size={16} /></Link></div><div className="pub-latest-list">{latest.map((post) => <Link to={`/blog/${post.slug}`} key={post.slug}><span>{post.category}</span><h3>{post.title}</h3><p>{post.excerpt}</p><ArrowRight size={18} /></Link>)}</div></section>
 

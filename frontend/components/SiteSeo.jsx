@@ -81,7 +81,7 @@ function getSeoForPath(pathname) {
       ...base,
       title: `${SITE_DISPLAY_NAME} | Automated blogs, AI publishing systems, and ad-ready growth`,
       description:
-        'MyAppAI publishes practical systems for automated blogs, AI-assisted editorial workflows, SEO structure, and reader-first monetization.',
+        'MyAppAI publishes practical systems for automated blogs, AI-assisted editorial workflows, SEO structure, visible ad inventory, sponsor offers, and reader-first monetization.',
       adsEligible: true,
       schemas: [
         {
@@ -103,6 +103,19 @@ function getSeoForPath(pathname) {
             },
           },
         },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'AI Publishing Launch Kit',
+          provider: {
+            '@type': 'Organization',
+            name: SITE_DISPLAY_NAME,
+            url: SITE_URL,
+          },
+          areaServed: 'US',
+          serviceType: 'AI publishing strategy, SEO content systems, monetization planning, and sponsor-ready website operations',
+          url: `${SITE_URL}/contact`,
+        },
       ],
     }
   }
@@ -114,6 +127,26 @@ function getSeoForPath(pathname) {
       description:
         'Browse the numbered article archive covering AI publishing, monetization, audience growth, and ad-ready site operations.',
       adsEligible: true,
+    }
+  }
+
+  if (normalizedPath === '/revenue') {
+    return {
+      ...base,
+      title: `${SITE_DISPLAY_NAME} | Monetization playbook for AI publishing`,
+      description:
+        'Learn how MyAppAI monetizes AI publishing with display ad inventory, sponsor packages, paid resources, affiliate disclosures, and reader-first offers.',
+      adsEligible: true,
+      schemas: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'MyAppAI Revenue Playbook',
+          description:
+            'A monetization model for AI publishing sites using ads, sponsors, paid resources, affiliate links, and owned audience channels.',
+          url: `${SITE_URL}/revenue`,
+        },
+      ],
     }
   }
 
@@ -160,7 +193,7 @@ function getSeoForPath(pathname) {
     return {
       ...base,
       noindex: false,
-      adsEligible: ['/guides', '/about'].includes(normalizedPath),
+      adsEligible: ['/guides', '/about', '/contact'].includes(normalizedPath),
     }
   }
 

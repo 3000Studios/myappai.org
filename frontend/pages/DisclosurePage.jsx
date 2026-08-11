@@ -1,4 +1,5 @@
 import React from 'react'
+import HeroVideo from '../components/HeroVideo.jsx'
 import { SITE_DISPLAY_NAME } from '../src/siteMeta.js'
 
 export default function DisclosurePage() {
@@ -11,6 +12,8 @@ export default function DisclosurePage() {
           and carefully selected affiliate relationships.
         </p>
       </header>
+
+      <HeroVideo compact eyebrow="Disclosure video" title="Commercial relationships should be clear before the click." body="Ads, sponsorships, affiliate links, and paid offers all need visible context." />
 
       <section className="prose-section">
         <h2>Display advertising</h2>

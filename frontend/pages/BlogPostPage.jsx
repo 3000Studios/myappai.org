@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import AdSenseSlot from '../components/AdSenseSlot.jsx'
+import HeroVideo from '../components/HeroVideo.jsx'
 import PrismHeadline from '../components/PrismHeadline.jsx'
 import { blogLookup } from '../src/siteData.js'
 
@@ -33,6 +34,7 @@ export default function BlogPostPage() {
             <div className="article-video-frame__overlay" />
           </div>
         ) : null}
+        <HeroVideo compact eyebrow="Article video" title="The article system in motion." body="Each field note connects topic strategy, review, search, and revenue into one operating pattern." />
       </section>
 
       <section className="stack-xl article-stack">

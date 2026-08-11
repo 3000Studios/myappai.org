@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import HeroVideo from '../components/HeroVideo.jsx'
 import { SUPPORT_EMAIL, SITE_DISPLAY_NAME } from '../src/siteMeta.js'
 
 export default function ContactPage() {
@@ -25,6 +26,8 @@ return (
       or questions about the publishing systems documented here.
     </p>
   </header>
+
+  <HeroVideo compact eyebrow="Contact video" title="Turn reader interest into paid conversations." body="Contact is the conversion path for sponsors, paid kits, implementation help, and editorial partnerships." />
 
   <section className="prose-section">
     <h2>Get in Touch</h2>

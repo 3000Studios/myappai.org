@@ -16,7 +16,7 @@ export const SITE_CATEGORY =
   'AI publishing systems, automated blogs, and monetization workflows'
 export const SITE_DEFAULT_TITLE = `${SITE_DISPLAY_NAME} | Automated publishing and AdSense-ready growth`
 export const SITE_DEFAULT_DESCRIPTION =
-  'MyAppAI publishes practical guides on AI content systems, automated blogs, monetization, and the operational setup required for useful, reader-first publishing sites.'
+  'MyAppAI teaches creators how to build AI publishing systems with editorial workflows, SEO strategy, visible ad inventory, sponsor offers, affiliate resources, and responsible monetization.'
 export const COPYRIGHT_HOLDER = SITE_LEGAL_NAME
 export const SUPPORT_EMAIL = 'editor@myappai.org'
 export const CONTACT_EMAIL = SUPPORT_EMAIL

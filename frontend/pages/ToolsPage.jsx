@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import AdSenseSlot from '../components/AdSenseSlot.jsx'
+import HeroVideo from '../components/HeroVideo.jsx'
 
 const TOOLS = [
 {
@@ -150,6 +152,8 @@ return (
       </p>
     </header>
 
+    <HeroVideo compact eyebrow="Guide video" title="Tools, playbooks, and offers connected in one stack." body="The guide hub turns content into monetizable paths: tool recommendations, service inquiries, and sponsor inventory." />
+
     <nav className="tools-filter" aria-label="Filter by category">
       {categories.map(cat => (
         <button
@@ -192,6 +196,8 @@ return (
         </div>
       </section>
     ))}
+
+    <AdSenseSlot className="ad-slot--wide" />
 
     <section className="prose-section tools-disclosure">
       <p><em>Disclosure: Some outbound links on this page may become affiliate links as the site expands its monetization stack. Any such relationship will be clearly disclosed.</em></p>

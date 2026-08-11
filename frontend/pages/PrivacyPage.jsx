@@ -1,4 +1,5 @@
 import React from 'react'
+import HeroVideo from '../components/HeroVideo.jsx'
 import { CONTACT_EMAIL, SITE_DISPLAY_NAME } from '../src/siteMeta.js'
 
 export default function PrivacyPage() {
@@ -11,6 +12,8 @@ export default function PrivacyPage() {
           contact forms, and editorial automation systems to operate the site.
         </p>
       </header>
+
+      <HeroVideo compact eyebrow="Privacy video" title="Data, ads, and analytics should stay understandable." body="Privacy pages support monetization by explaining how tracking, advertising, and contact flows work." />
 
       <section className="prose-section">
         <h2>What we collect</h2>
