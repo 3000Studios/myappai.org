@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import SiteFrame from '../components/SiteFrame.jsx'
-import ExperienceOrchestrator from '../components/ExperienceOrchestrator.jsx'
 import AdminLayout from '../components/admin/AdminLayout.jsx'
 import HomePage from '../pages/HomePage.jsx'
 import AboutPage from '../pages/AboutPage.jsx'
@@ -11,6 +10,7 @@ import BlogIndexPage from '../pages/BlogIndexPage.jsx'
 import BlogPostPage from '../pages/BlogPostPage.jsx'
 import PrivacyPage from '../pages/PrivacyPage.jsx'
 import DisclosurePage from '../pages/DisclosurePage.jsx'
+import TermsPage from '../pages/TermsPage.jsx'
 import AdminLoginPage from '../pages/AdminLoginPage.jsx'
 import AdminOperatorPage from '../pages/admin/AdminOperatorPage.jsx'
 import AdminOpenClawPage from '../pages/admin/AdminOpenClawPage.jsx'
@@ -39,7 +39,6 @@ useEffect(() => {
 
 return (
   <SiteRuntimeProvider>
-    <ExperienceOrchestrator />
     <Routes>
       <Route element={<SiteFrame />}>
         <Route path="/" element={<HomePage />} />
@@ -50,6 +49,7 @@ return (
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/disclosure" element={<DisclosurePage />} />
+        <Route path="/terms" element={<TermsPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/openclaw" element={<OpenClaw />} />
         <Route path="/revenue" element={<RevenueStreams />} />

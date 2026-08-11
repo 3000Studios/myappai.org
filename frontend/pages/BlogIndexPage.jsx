@@ -1,75 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PrismHeadline from '../components/PrismHeadline.jsx'
-import { blogIndex } from '../src/siteData.js'
+import { ArrowRight, Play } from 'lucide-react'
+import { blogIndex, blogPosts } from '../src/siteData.js'
+import workspaceImage from '../assets/editorial-workspace.png'
 
 export default function BlogIndexPage() {
-  const featuredPosts = blogIndex.posts.filter((post) => post.featured)
-
-  return (
-    <article className="editorial-shell stack-2xl">
-      <section className="editorial-hero section-card">
-        <div className="stack-lg">
-          <span className="meta-line">Automated archive</span>
-          <PrismHeadline text="Every article, numbered and publish-ready." />
-          <p className="section-intro editorial-hero__intro">
-            MyAppAI.org rebuilds its archive from source content so the sitemap,
-            chronological index, article cards, and monetization hooks stay in
-            sync.
-          </p>
-        </div>
-      </section>
-
-      <section className="editorial-featured-grid">
-        {featuredPosts.map((post) => (
-          <Link
-            key={post.slug}
-            className="editorial-feature-card section-card"
-            to={`/blog/${post.slug}`}
-          >
-            <span className="meta-line">
-              #{post.number} · {post.category}
-            </span>
-            <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
-            <span className="editorial-link">Read article</span>
-          </Link>
-        ))}
-      </section>
-
-      <section className="section-card stack-lg">
-        <div className="stack-sm">
-          <span className="meta-line">Chronological index</span>
-          <h2>Latest entries</h2>
-          <p className="section-intro">
-            The archive is generated in publish order and refreshed during site
-            builds so new content lands here automatically.
-          </p>
-        </div>
-
-        <div className="editorial-index-list">
-          {blogIndex.posts.map((post) => (
-            <Link
-              key={post.slug}
-              className="editorial-index-row"
-              to={`/blog/${post.slug}`}
-            >
-              <div className="editorial-index-row__number">
-                {String(post.number).padStart(2, '0')}
-              </div>
-              <div className="editorial-index-row__content">
-                <div className="editorial-index-row__meta">
-                  <span>{post.category}</span>
-                  <span>{post.publishedAt}</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </article>
-  )
+  const featuredPosts = blogIndex.posts.filter((post) => post.featured).slice(0, 3)
+  const videoPosts = blogPosts.filter((post) => post.video?.src).slice(0, 3)
+  return <article className="archive-page">
+    <section className="archive-hero"><div><p className="pub-kicker">The MyAppAI archive</p><h1>Ideas for the people behind the publishing.</h1><p>Practical systems for editorial operations, audience growth, search strategy, and revenue that respects the reader.</p></div><img src={workspaceImage} alt="Independent publisher working at a desk" /></section>
+    <section className="archive-feature"><div className="pub-section-heading"><div><p className="pub-kicker">Editor’s picks</p><h2>Begin with the systems that matter most.</h2></div></div><div className="archive-feature__grid">{featuredPosts.map((post, index) => <Link key={post.slug} to={`/blog/${post.slug}`}><span className="archive-number">0{index + 1}</span><p>{post.category} · {post.readTime}</p><h3>{post.title}</h3><span>Read field note <ArrowRight size={15} /></span></Link>)}</div></section>
+    <section className="archive-video"><div><p className="pub-kicker"><Play size={15} /> Video companions</p><h2>Watch the workflow, then make it your own.</h2><p>Selected field notes include a calm visual companion for readers who prefer to see the operating model in motion.</p></div><div className="archive-video__list">{videoPosts.map((post) => <Link to={`/blog/${post.slug}`} key={post.slug}><span><Play size={16} fill="currentColor" /></span><div><p>{post.category}</p><h3>{post.title}</h3></div><ArrowRight size={18} /></Link>)}</div></section>
+    <section className="archive-index"><div><p className="pub-kicker">Every field note</p><h2>Latest from the desk.</h2></div><div>{blogIndex.posts.map((post) => <Link key={post.slug} to={`/blog/${post.slug}`}><span>{String(post.number).padStart(2, '0')}</span><div><p>{post.category} · {post.publishedAt} · {post.readTime}</p><h3>{post.title}</h3><small>{post.excerpt}</small></div><ArrowRight size={18} /></Link>)}</div></section>
+  </article>
 }

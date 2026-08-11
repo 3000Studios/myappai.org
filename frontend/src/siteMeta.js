@@ -9,7 +9,7 @@ export const REPOSITORY_URL = 'https://github.com/3000Studios/myappai'
 
 export const SITE_DISPLAY_NAME = 'MyAppAI'
 export const SITE_LEGAL_NAME = 'MyAppAI'
-export const SITE_DOMAIN = 'myappai.net'
+export const SITE_DOMAIN = 'myappai.org'
 export const SITE_URL = `https://${SITE_DOMAIN}`
 export const WWW_SITE_URL = `https://www.${SITE_DOMAIN}`
 export const SITE_CATEGORY =

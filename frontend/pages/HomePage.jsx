@@ -1,169 +1,79 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import PrismHeadline from '../components/PrismHeadline.jsx'
+import { ArrowRight, Check, Mail, Sparkles } from 'lucide-react'
 import { blogIndex, blogPosts } from '../src/siteData.js'
 import './HomePage.css'
 
-const categoryHighlights = [
-  {
-    title: 'Automated publishing',
-    body: 'Systems for drafting, reviewing, indexing, and shipping useful AI-assisted articles without relying on thin filler.',
-  },
-  {
-    title: 'AdSense readiness',
-    body: 'Practical site structure for policy pages, original content, trust signals, ad placement, and crawlable metadata.',
-  },
-  {
-    title: 'Monetization systems',
-    body: 'Playbooks for affiliate strategy, lead capture, newsletter loops, and revenue surfaces that fit editorial UX.',
-  },
+const pillars = [
+  ['01', 'Build useful content', 'Editorial systems that turn expertise into useful, reader-first articles with a clear point of view.'],
+  ['02', 'Grow with intent', 'Practical SEO, internal linking, and newsletter loops that make every article work harder.'],
+  ['03', 'Monetize with trust', 'Ads, affiliates, sponsorships, and paid resources placed where they help—not interrupt.'],
 ]
 
 export default function HomePage() {
-  const featuredPosts = blogIndex.posts.slice(0, 3)
-  const latestPosts = blogPosts.slice(0, 6)
+  const [email, setEmail] = useState('')
+  const [joined, setJoined] = useState(false)
+  const featured = blogIndex.posts.filter((post) => post.featured).slice(0, 3)
+  const latest = blogPosts.slice(0, 3)
+
+  function joinBriefing(event) {
+    event.preventDefault()
+    if (!email) return
+    window.location.href = `mailto:editor@myappai.org?subject=${encodeURIComponent('The Operator Briefing subscription')}&body=${encodeURIComponent(`Please add ${email} to The Operator Briefing.`)}`
+    setJoined(true)
+  }
 
   return (
-    <article className="editorial-shell stack-2xl">
-      <section className="editorial-hero section-card section-anchor">
-        <div className="editorial-hero__copy">
-          <span className="meta-line">MyAppAI.org</span>
-          <PrismHeadline text="Automated blog systems for AI publishers who still care about quality." />
-          <p className="section-intro editorial-hero__intro">
-            Build a real publishing engine with original articles, a numbered
-            archive, compliance pages, monetization hooks, and ad-ready
-            structure wired into the same repo.
-          </p>
-          <div className="hero__actions editorial-hero__actions">
-            <Link className="button button--primary" to="/blog">
-              Browse the archive
-            </Link>
-            <Link className="button button--ghost" to="/guides">
-              Explore growth guides
-            </Link>
+    <article className="publication-home">
+      <section className="pub-hero">
+        <div className="pub-hero__copy">
+          <p className="pub-kicker"><Sparkles size={15} /> The independent guide to AI publishing</p>
+          <h1>Build a media business people trust.</h1>
+          <p className="pub-hero__lede">MyAppAI is a practical field guide for creators and small teams building useful, sustainable sites with AI—without sacrificing the human judgment that earns an audience.</p>
+          <div className="pub-actions">
+            <Link className="pub-button pub-button--dark" to="/blog">Start reading <ArrowRight size={17} /></Link>
+            <Link className="pub-text-link" to="/guides">Explore the playbooks <ArrowRight size={16} /></Link>
           </div>
+          <div className="pub-hero__trust"><span>Evidence-led publishing</span><span>•</span><span>Clear disclosures</span><span>•</span><span>Reader-first revenue</span></div>
         </div>
+        <aside className="pub-hero__edition" aria-label="Latest issue">
+          <div className="edition-topline"><span>THE OPERATOR</span><span>ISSUE 01</span></div>
+          <div className="edition-mark">M</div>
+          <p className="edition-label">THE WEEKLY BRIEFING</p>
+          <h2>The system behind a site that compounds.</h2>
+          <p>How to build the editorial, search, and revenue foundations before you publish at scale.</p>
+          <Link to="/guides" className="edition-link">Read the field notes <ArrowRight size={16} /></Link>
+        </aside>
+      </section>
 
-        <div className="editorial-hero__panel">
-          <div className="editorial-wireframe">
-            <div className="editorial-wireframe__orb" />
-          </div>
+      <section className="pub-marquee" aria-label="What we cover"><span>Editorial systems</span><span>Search strategy</span><span>Creator revenue</span><span>AdSense readiness</span><span>Audience ownership</span></section>
 
-          <div className="editorial-signal-grid">
-            <div className="hero-stat-card">
-              <span className="meta-line">Archive</span>
-              <strong>{blogIndex.posts.length} generated articles</strong>
-              <p>Chronological index rebuilt automatically during site builds.</p>
-            </div>
-            <div className="hero-stat-card">
-              <span className="meta-line">Monetization</span>
-              <strong>Ads + affiliate ready</strong>
-              <p>Disclosure, privacy, ads.txt, and article ad zones are in place.</p>
-            </div>
-            <div className="hero-stat-card">
-              <span className="meta-line">Operational model</span>
-              <strong>Source-driven publishing</strong>
-              <p>Content inventory, sitemap routes, and metadata stay synchronized.</p>
-            </div>
-          </div>
+      <section className="pub-section pub-intro-grid">
+        <div><p className="pub-kicker">A better way to grow</p><h2>Less content noise. More durable value.</h2></div>
+        <p className="pub-body">The best publishing businesses do not chase every trend. They develop a useful point of view, create pathways through their knowledge, and give readers honest ways to support the work. That is what we document here.</p>
+      </section>
+
+      <section className="pub-pillars" aria-label="Core pillars">
+        {pillars.map(([number, title, body]) => <article key={number} className="pub-pillar"><span>{number}</span><h3>{title}</h3><p>{body}</p><Link to="/guides">See how <ArrowRight size={15} /></Link></article>)}
+      </section>
+
+      <section className="pub-section pub-featured">
+        <div className="pub-section-heading"><div><p className="pub-kicker">Start here</p><h2>Essential reading for modern publishers.</h2></div><Link className="pub-text-link" to="/blog">View all articles <ArrowRight size={16} /></Link></div>
+        <div className="pub-story-grid">
+          {featured.map((post, index) => <Link className={`pub-story pub-story--${index + 1}`} key={post.slug} to={`/blog/${post.slug}`}><div className="story-art"><span>{String(index + 1).padStart(2, '0')}</span></div><p className="story-meta">{post.category} <i /> {post.readTime}</p><h3>{post.title}</h3><p>{post.excerpt}</p><span className="pub-read-link">Read article <ArrowRight size={15} /></span></Link>)}
         </div>
       </section>
 
-      <section className="editorial-grid editorial-grid--three">
-        {categoryHighlights.map((item) => (
-          <div key={item.title} className="content-card editorial-glow-card">
-            <span className="meta-line">Core track</span>
-            <h2>{item.title}</h2>
-            <p>{item.body}</p>
-          </div>
-        ))}
+      <section className="pub-revenue">
+        <div><p className="pub-kicker">Revenue, with restraint</p><h2>Multiple income streams. One trusted relationship.</h2><p>We teach a balanced model: respectful advertising, transparently disclosed recommendations, paid tools and templates, sponsorships that fit the audience, and an email list you own.</p><Link className="pub-button pub-button--light" to="/revenue">Explore revenue systems <ArrowRight size={17} /></Link></div>
+        <ol><li><span>01</span><div><strong>Useful free content</strong><p>Build a library worth returning to.</p></div></li><li><span>02</span><div><strong>Reader-supported offers</strong><p>Templates, deep dives, and tools that save time.</p></div></li><li><span>03</span><div><strong>Aligned partnerships</strong><p>Affiliates and sponsors with plain-language disclosures.</p></div></li></ol>
       </section>
 
-      <section className="section-card stack-lg">
-        <div className="stack-sm">
-          <span className="meta-line">Featured reads</span>
-          <h2>What the site is built to teach</h2>
-          <p className="section-intro">
-            Each article is written to move a publisher closer to a working,
-            monetizable content engine rather than a collection of disconnected
-            blog posts.
-          </p>
-        </div>
+      <section className="pub-section pub-latest"><div className="pub-section-heading"><div><p className="pub-kicker">From the desk</p><h2>Fresh field notes.</h2></div><Link className="pub-text-link" to="/blog">Browse the archive <ArrowRight size={16} /></Link></div><div className="pub-latest-list">{latest.map((post) => <Link to={`/blog/${post.slug}`} key={post.slug}><span>{post.category}</span><h3>{post.title}</h3><p>{post.excerpt}</p><ArrowRight size={18} /></Link>)}</div></section>
 
-        <div className="editorial-featured-grid">
-          {featuredPosts.map((post) => (
-            <Link
-              key={post.slug}
-              className="editorial-feature-card section-card"
-              to={`/blog/${post.slug}`}
-            >
-              <span className="meta-line">
-                #{post.number} · {post.category}
-              </span>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-              <span className="editorial-link">Read the article</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-card stack-lg">
-        <div className="stack-sm">
-          <span className="meta-line">Latest index</span>
-          <h2>Numbered archive for readers and crawlers</h2>
-          <p className="section-intro">
-            The archive view is chronological, labeled, and linked so new
-            content can slot directly into the site structure.
-          </p>
-        </div>
-
-        <div className="editorial-index-list">
-          {latestPosts.map((post, index) => (
-            <Link
-              key={post.slug}
-              className="editorial-index-row"
-              to={`/blog/${post.slug}`}
-            >
-              <div className="editorial-index-row__number">
-                {String(index + 1).padStart(2, '0')}
-              </div>
-              <div className="editorial-index-row__content">
-                <div className="editorial-index-row__meta">
-                  <span>{post.category}</span>
-                  <span>{post.publishedAt}</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="editorial-grid editorial-grid--two">
-        <div className="section-card stack-md editorial-panel">
-          <span className="meta-line">Ad-ready foundations</span>
-          <h2>What makes the site monetization ready</h2>
-          <ul className="editorial-list">
-            <li>Original long-form articles with real informational value.</li>
-            <li>Privacy and disclosure pages linked into the public nav.</li>
-            <li>Automated sitemap, robots.txt, and ads.txt generation.</li>
-            <li>Responsive layouts with dedicated content and ad surfaces.</li>
-          </ul>
-        </div>
-
-        <div className="section-card stack-md editorial-panel">
-          <span className="meta-line">Built-in growth loop</span>
-          <h2>How the content engine compounds</h2>
-          <ul className="editorial-list">
-            <li>Every new article lands in the index automatically.</li>
-            <li>Internal links route readers into categories and evergreen guides.</li>
-            <li>Featured rails and CTA blocks create monetization paths without clutter.</li>
-            <li>Public pages stay consistent under one `.org` publishing identity.</li>
-          </ul>
-        </div>
+      <section className="pub-newsletter">
+        <div><p className="pub-kicker"><Mail size={15} /> The Operator Briefing</p><h2>One useful idea, each week.</h2><p>A short, thoughtful note on building the systems behind a durable publishing business. No growth hacks. No noise.</p></div>
+        <form onSubmit={joinBriefing}>{joined ? <p className="pub-form-success"><Check size={18} /> Your email app should be open—thank you.</p> : <><label htmlFor="briefing-email">Email address</label><div><input id="briefing-email" required type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" /><button type="submit">Join free</button></div><small>By subscribing, you agree to our <Link to="/privacy">privacy policy</Link>.</small></>}</form>
       </section>
     </article>
   )

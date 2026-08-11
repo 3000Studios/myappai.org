@@ -1,6 +1,7 @@
-const express = require('express')
+import express from 'express'
+import { spawn } from 'node:child_process'
+
 const router = express.Router()
-const { spawn } = require('child_process')
 
 // Database for OpenClaw operations (in-memory for now, can be upgraded to MongoDB)
 const openclawDB = {
@@ -78,10 +79,8 @@ const openclawDB = {
 // Middleware to check admin authentication
 const checkAuth = (req, res, next) => {
   const auth = req.headers.authorization
-  if (
-    auth ===
-    'Bearer myaai_admin_1c7a1b7f8f4c4658b9c5dc8d667ac8c86b80b5960d01e4d3'
-  ) {
+  const expectedToken = process.env.OPENCLAW_ADMIN_TOKEN
+  if (expectedToken && auth === `Bearer ${expectedToken}`) {
     next()
   } else {
     res.status(401).json({ error: 'Unauthorized access' })
@@ -312,4 +311,4 @@ setInterval(() => {
   }
 }, 300000) // Every 5 minutes
 
-module.exports = router
+export default router

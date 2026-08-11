@@ -5,7 +5,7 @@
       "number": 1,
       "slug": "ai-content-ops-blueprint",
       "title": "AI Content Ops Blueprint: How to Run an Automated Publishing Engine That Still Feels Human",
-      "excerpt": "This blueprint shows how MyAppAI.org structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.",
+      "excerpt": "This blueprint shows how MyAppAI structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.",
       "publishedAt": "2026-04-28",
       "category": "Content Operations",
       "readTime": "8 min read",
@@ -45,7 +45,7 @@
       "number": 5,
       "slug": "seo-architecture-for-automation-sites",
       "title": "SEO Architecture for Automation Sites: Categories, Internal Links, and Crawl Signals",
-      "excerpt": "Good SEO architecture is usually visible in navigation, archives, and metadata before it is visible in rankings. This guide shows the structure MyAppAI.org uses.",
+      "excerpt": "Good SEO architecture is usually visible in navigation, archives, and metadata before it is visible in rankings. This guide shows the structure MyAppAI uses.",
       "publishedAt": "2026-04-24",
       "category": "SEO",
       "readTime": "9 min read",
@@ -82,5 +82,5 @@
       "featured": false
     }
   ],
-  "updatedAt": "2026-04-28T19:43:36.889Z"
+  "updatedAt": "2026-08-11T07:51:49.572Z"
 }

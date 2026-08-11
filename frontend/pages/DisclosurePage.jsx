@@ -1,4 +1,5 @@
 import React from 'react'
+import { SITE_DISPLAY_NAME } from '../src/siteMeta.js'
 
 export default function DisclosurePage() {
   return (
@@ -6,7 +7,7 @@ export default function DisclosurePage() {
       <header className="prose-header">
         <h1>Advertising & Affiliate Disclosure</h1>
         <p className="prose-lead">
-          MyAppAI.org is built to support display advertising, sponsorships,
+          {SITE_DISPLAY_NAME} is built to support display advertising, sponsorships,
           and carefully selected affiliate relationships.
         </p>
       </header>
@@ -17,6 +18,16 @@ export default function DisclosurePage() {
           Pages on this site may contain advertising units from Google AdSense
           or other ad partners. Those placements help fund editorial operations
           and site maintenance.
+        </p>
+      </section>
+
+      <section className="prose-section">
+        <h2>Sponsored content</h2>
+        <p>
+          If we publish sponsored content or receive compensation for a
+          placement, we will label that relationship clearly near the relevant
+          content. A commercial relationship does not guarantee a positive
+          review or editorial coverage.
         </p>
       </section>
 

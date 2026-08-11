@@ -1,72 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>SITE_URL=https://campdreamga.com</loc>
+    <loc>https://myappai.org</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog</loc>
+    <loc>https://myappai.org/blog</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/guides</loc>
+    <loc>https://myappai.org/guides</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/about</loc>
+    <loc>https://myappai.org/about</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/contact</loc>
+    <loc>https://myappai.org/contact</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/privacy</loc>
+    <loc>https://myappai.org/privacy</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/disclosure</loc>
+    <loc>https://myappai.org/disclosure</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-14</loc>
+    <loc>https://myappai.org/terms</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-15</loc>
+    <loc>https://myappai.org/growth-system-08-14</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-16</loc>
+    <loc>https://myappai.org/growth-system-08-15</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-17</loc>
+    <loc>https://myappai.org/growth-system-08-16</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-18</loc>
+    <loc>https://myappai.org/growth-system-08-17</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-19</loc>
+    <loc>https://myappai.org/growth-system-08-18</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-20</loc>
+    <loc>https://myappai.org/growth-system-08-19</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/growth-system-08-21</loc>
+    <loc>https://myappai.org/growth-system-08-20</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/ad-layouts-that-protect-reader-trust</loc>
+    <loc>https://myappai.org/growth-system-08-21</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/affiliate-content-without-thin-review-spam</loc>
+    <loc>https://myappai.org/blog/ad-layouts-that-protect-reader-trust</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/ai-content-ops-blueprint</loc>
+    <loc>https://myappai.org/blog/affiliate-content-without-thin-review-spam</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/editorial-calendar-for-ai-blogs</loc>
+    <loc>https://myappai.org/blog/ai-content-ops-blueprint</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/google-adsense-site-readiness-checklist</loc>
+    <loc>https://myappai.org/blog/editorial-calendar-for-ai-blogs</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/human-review-for-ai-generated-articles</loc>
+    <loc>https://myappai.org/blog/google-adsense-site-readiness-checklist</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/newsletter-hooks-for-automated-media-sites</loc>
+    <loc>https://myappai.org/blog/human-review-for-ai-generated-articles</loc>
   </url>
   <url>
-    <loc>SITE_URL=https://campdreamga.com/blog/seo-architecture-for-automation-sites</loc>
+    <loc>https://myappai.org/blog/newsletter-hooks-for-automated-media-sites</loc>
+  </url>
+  <url>
+    <loc>https://myappai.org/blog/seo-architecture-for-automation-sites</loc>
   </url>
 </urlset>

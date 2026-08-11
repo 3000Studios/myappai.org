@@ -22,6 +22,15 @@ export default function PrivacyPage() {
       </section>
 
       <section className="prose-section">
+        <h2>Information you provide</h2>
+        <p>
+          If you contact us or ask to join a briefing, we receive the details
+          you choose to include, such as your email address and message. We use
+          those details only to respond or provide the requested communication.
+        </p>
+      </section>
+
+      <section className="prose-section">
         <h2>How data is used</h2>
         <p>
           We use this information to improve the website, understand what
@@ -33,10 +42,23 @@ export default function PrivacyPage() {
       <section className="prose-section">
         <h2>Cookies and advertising</h2>
         <p>
-          Third-party advertising partners may use cookies or similar
-          technologies to personalize ads, measure campaign performance, and
-          limit duplicate impressions. You can manage ad personalization through
-          your browser and Google ad settings.
+          When advertising is enabled, third-party advertising partners may use
+          cookies or similar technologies to measure delivery, limit duplicate
+          impressions, and—in settings where you allow it—personalize ads. In
+          regions where consent is required, advertising cookies will not be
+          enabled until an appropriate consent choice is available. You can
+          also manage ad personalization through your browser and Google ad
+          settings.
+        </p>
+      </section>
+
+      <section className="prose-section">
+        <h2>Your choices</h2>
+        <p>
+          You can decline optional cookies where a consent choice is presented,
+          adjust browser cookie controls, and unsubscribe from email at any
+          time. To ask about or request deletion of information you provided,
+          contact us using the address below.
         </p>
       </section>
 

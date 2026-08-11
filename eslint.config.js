@@ -11,6 +11,9 @@ export default [
       'frontend/public/**',
       'api/**/*.ts',
       'engine/**/*.ts',
+      // Vendored packages ship their own dependency graphs and lint configs;
+      // they are not part of the MyAppAI application lint surface.
+      'packages/**',
     ],
   },
   js.configs.recommended,

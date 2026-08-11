@@ -1,13 +1,13 @@
 import React from 'react'
-import { SUPPORT_EMAIL } from '../src/siteMeta.js'
+import { SITE_DISPLAY_NAME, SUPPORT_EMAIL } from '../src/siteMeta.js'
 
 export default function AboutPage() {
   return (
     <article className="prose-page">
       <header className="prose-header">
-        <h1>About MyAppAI.org</h1>
+        <h1>About {SITE_DISPLAY_NAME}</h1>
         <p className="prose-lead">
-          MyAppAI.org is a publishing brand focused on AI content systems,
+          {SITE_DISPLAY_NAME} is an independent publishing brand focused on AI content systems,
           editorial automation, monetization strategy, and the practical work
           required to keep an ad-ready site useful.
         </p>
@@ -21,6 +21,16 @@ export default function AboutPage() {
           strategy, and Google AdSense readiness. The goal is to help operators
           build sites that look finished, publish consistently, and monetize
           without degrading trust.
+        </p>
+      </section>
+
+      <section className="prose-section">
+        <h2>Our editorial standards</h2>
+        <p>
+          We publish original, practical work designed to answer a real reader
+          question. AI may assist research and drafting, but each article is
+          reviewed for clarity, usefulness, and factual accuracy before it is
+          published. We correct material errors when they are brought to us.
         </p>
       </section>
 

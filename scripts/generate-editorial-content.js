@@ -12,7 +12,7 @@ const topics = [
     description:
       'A production guide to building a reliable AI publishing workflow with editorial review, SEO structure, monetization slots, and consistent brand voice.',
     excerpt:
-      'This blueprint shows how MyAppAI.org structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.',
+      'This blueprint shows how MyAppAI structures topic intake, drafting, quality review, and monetization so articles can publish on schedule without turning into thin AI filler.',
     publishedAt: '2026-04-28',
     readTime: '8 min read',
     heroTag: 'Publishing Systems',
@@ -108,7 +108,7 @@ const topics = [
     description:
       'A technical walkthrough for structuring an automation-focused publication so search engines can understand categories, recency, and authority.',
     excerpt:
-      'Good SEO architecture is usually visible in navigation, archives, and metadata before it is visible in rankings. This guide shows the structure MyAppAI.org uses.',
+      'Good SEO architecture is usually visible in navigation, archives, and metadata before it is visible in rankings. This guide shows the structure MyAppAI uses.',
     publishedAt: '2026-04-24',
     readTime: '9 min read',
     heroTag: 'Technical SEO',
@@ -236,7 +236,7 @@ function makePost(topic, index) {
     description: topic.description,
     excerpt: topic.excerpt,
     publishedAt: topic.publishedAt,
-    author: 'MyAppAI.org Editorial',
+    author: 'MyAppAI Editorial',
     category: topic.category,
     readTime: topic.readTime,
     heroTag: topic.heroTag,
@@ -253,7 +253,7 @@ function makePost(topic, index) {
     cta: {
       eyebrow: 'Keep building',
       heading: 'Turn the article into a repeatable publishing system',
-      body: 'Use MyAppAI.org as the operating manual for AI-driven content, monetization, and publishing workflows that stay readable and ad-safe.',
+      body: 'Use MyAppAI as the operating manual for AI-driven content, monetization, and publishing workflows that stay readable and ad-safe.',
       primaryLabel: 'Browse all articles',
       primaryHref: '/blog',
     },

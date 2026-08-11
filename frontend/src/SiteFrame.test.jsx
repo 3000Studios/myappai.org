@@ -9,7 +9,7 @@ vi.mock('../src/siteApi.js', () => ({
 }))
 
 describe('SiteFrame', () => {
-  it('renders brand, footer trust copy and global ticker', () => {
+  it('renders the publication shell, trust links, and editorial footer', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>
@@ -20,9 +20,9 @@ describe('SiteFrame', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByText('MyAppAI.org')).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Primary navigation' })).toBeInTheDocument()
     expect(screen.getByRole('contentinfo')).toBeInTheDocument()
-    expect(screen.getByText(/Why MyAppAI\.org/i)).toBeInTheDocument()
-    expect(screen.getByText('Loading live data...')).toBeInTheDocument()
+    expect(screen.getByText('Built for readers, not algorithms.')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Terms' })).toBeInTheDocument()
   })
 })

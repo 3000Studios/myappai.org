@@ -23,6 +23,7 @@ async function collectRoutes() {
     '/contact',
     '/privacy',
     '/disclosure',
+    '/terms',
   ]
 
   const [pageEntries, blogEntries] = await Promise.all([

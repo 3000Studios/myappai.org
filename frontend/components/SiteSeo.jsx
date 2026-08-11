@@ -81,7 +81,7 @@ function getSeoForPath(pathname) {
       ...base,
       title: `${SITE_DISPLAY_NAME} | Automated blogs, AI publishing systems, and ad-ready growth`,
       description:
-        'MyAppAI.org publishes practical systems for automated blogs, AI-assisted editorial workflows, SEO structure, and Google AdSense readiness.',
+        'MyAppAI publishes practical systems for automated blogs, AI-assisted editorial workflows, SEO structure, and reader-first monetization.',
       adsEligible: true,
       schemas: [
         {
@@ -96,6 +96,11 @@ function getSeoForPath(pathname) {
             name: SITE_DISPLAY_NAME,
             url: SITE_URL,
             sameAs: [SITE_URL, WWW_SITE_URL],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer support',
+              email: 'editor@myappai.org',
+            },
           },
         },
       ],
@@ -145,12 +150,13 @@ function getSeoForPath(pathname) {
             name: SITE_DISPLAY_NAME,
             url: SITE_URL,
           },
+          mainEntityOfPage: article.canonicalUrl ?? `${SITE_URL}${normalizedPath}`,
         },
       ],
     }
   }
 
-  if (['/guides', '/about', '/contact', '/privacy', '/disclosure'].includes(normalizedPath)) {
+  if (['/guides', '/about', '/contact', '/privacy', '/disclosure', '/terms'].includes(normalizedPath)) {
     return {
       ...base,
       noindex: false,
