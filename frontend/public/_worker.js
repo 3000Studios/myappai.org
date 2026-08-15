@@ -146,7 +146,16 @@ function getAdminEmail(env) {
 }
 
 function getAdminPasscode(env) {
-  return String(env.ADMIN_PASSCODE ?? '5555').trim()
+  return String(env.ADMIN_PASSCODE ?? '').trim()
+}
+
+function getControlGatePassword(env) {
+  return getConfiguredEnvironmentValue(
+    env,
+    'CONTROL_GATE_PASSWORD',
+    'CONTROL_PASSWORD',
+    'ADMIN_PASSCODE'
+  )
 }
 
 function getAdminApiKey(env) {
@@ -1005,6 +1014,7 @@ function isProxyableOrigin(request, env) {
 function isEdgeHandledApiPath(pathname) {
   return (
     pathname === '/api/health' ||
+    pathname === '/api/access/login' ||
     pathname.startsWith('/api/public/') ||
     pathname === '/api/ollama' ||
     pathname.startsWith('/api/ollama/')
@@ -1025,6 +1035,46 @@ function proxyToAdmin(request, env) {
       body: ['GET', 'HEAD'].includes(request.method) ? undefined : request.body,
       redirect: 'follow',
     })
+  )
+}
+
+async function handlePrivateAccessLogin(request, env) {
+  const body = await request.json().catch(() => ({}))
+  const configuredPassword = getControlGatePassword(env)
+  const password = String(body.password ?? '').trim()
+
+  if (!configuredPassword) {
+    return jsonResponse(
+      {
+        ok: false,
+        message:
+          'CONTROL_GATE_PASSWORD must be configured before private access can be used.',
+      },
+      500
+    )
+  }
+
+  if (!password || password !== configuredPassword) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: 'Invalid private password.',
+      },
+      403
+    )
+  }
+
+  const signedSession = await createSignedSession(
+    getAdminEmail(env) || 'private-operator',
+    env
+  )
+
+  return jsonResponse(
+    { ok: true },
+    200,
+    {
+      'set-cookie': createSetCookie(signedSession, SESSION_TTL_SECONDS),
+    }
   )
 }
 
@@ -1207,6 +1257,10 @@ async function handleApi(request, env) {
     ['GET', 'HEAD', 'POST'].includes(request.method)
   ) {
     return handleOllamaProxy(request, env, pathname)
+  }
+
+  if (pathname === '/api/access/login' && request.method === 'POST') {
+    return handlePrivateAccessLogin(request, env)
   }
 
   if (pathname === '/api/admin/login' && request.method === 'POST') {

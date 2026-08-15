@@ -11,25 +11,44 @@ function isSpeechAvailable() {
   return Boolean(window.SpeechRecognition || window.webkitSpeechRecognition)
 }
 
-function playEntranceTone() {
+function startCinematicAudio() {
   try {
     const AudioContext = window.AudioContext || window.webkitAudioContext
     if (!AudioContext) return
     const context = new AudioContext()
-    const now = context.currentTime
-    ;[174, 261.63, 349.23, 523.25].forEach((frequency, index) => {
+    const master = context.createGain()
+    master.gain.setValueAtTime(0.0001, context.currentTime)
+    master.gain.exponentialRampToValueAtTime(0.16, context.currentTime + 0.4)
+    master.connect(context.destination)
+
+    const pad = context.createOscillator()
+    const padGain = context.createGain()
+    pad.type = 'triangle'
+    pad.frequency.value = 110
+    padGain.gain.value = 0.22
+    pad.connect(padGain).connect(master)
+    pad.start()
+
+    ;[196, 247, 330, 392, 523].forEach((frequency, index) => {
       const oscillator = context.createOscillator()
       const gain = context.createGain()
       oscillator.type = 'sine'
-      oscillator.frequency.setValueAtTime(frequency, now + index * 0.12)
-      gain.gain.setValueAtTime(0.0001, now + index * 0.12)
-      gain.gain.exponentialRampToValueAtTime(0.08, now + index * 0.12 + 0.03)
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + index * 0.12 + 0.55)
-      oscillator.connect(gain).connect(context.destination)
-      oscillator.start(now + index * 0.12)
-      oscillator.stop(now + index * 0.12 + 0.58)
+      oscillator.frequency.setValueAtTime(frequency, context.currentTime + 0.18 + index * 0.16)
+      gain.gain.setValueAtTime(0.0001, context.currentTime + 0.18 + index * 0.16)
+      gain.gain.exponentialRampToValueAtTime(0.12, context.currentTime + 0.22 + index * 0.16)
+      gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 1.1 + index * 0.16)
+      oscillator.connect(gain).connect(master)
+      oscillator.start(context.currentTime + 0.18 + index * 0.16)
+      oscillator.stop(context.currentTime + 1.25 + index * 0.16)
     })
-    window.setTimeout(() => context.close(), 1500)
+
+    window.setTimeout(() => {
+      master.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.8)
+      window.setTimeout(() => {
+        pad.stop()
+        context.close()
+      }, 900)
+    }, 4200)
   } catch {
     // Audio is a progressive enhancement.
   }
@@ -66,6 +85,12 @@ export default function CommandCenterPage() {
         setDispatch((current) => [...current, { agent, message, task }])
       }, 420 + index * 700)
     })
+    window.fetch('/api/command', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ command: task, source: 'command-center' }),
+    }).catch(() => {})
   }, [command])
 
   const stopListening = useCallback(() => {
@@ -132,12 +157,12 @@ export default function CommandCenterPage() {
       })
       if (!response.ok) throw new Error('Denied')
       setAccessState('entering')
-      playEntranceTone()
+      startCinematicAudio()
       window.setTimeout(() => {
         setAccessState('unlocked')
         speakGreeting()
         startListening()
-      }, 1400)
+      }, 2400)
     } catch {
       setAccessState('denied')
     }
@@ -150,7 +175,13 @@ export default function CommandCenterPage() {
       <video className="command-center__video" autoPlay muted loop playsInline aria-hidden="true">
         <source src="/assets/myappai-live-wallpaper.mp4" type="video/mp4" />
       </video>
-      {locked && <section className={`access-gate access-gate--${accessState}`} aria-label="Private access">
+      {accessState === 'entering' && (
+        <div className="entrance-morph" aria-hidden="true">
+          <div className="entrance-morph__ring" />
+          <div className="entrance-morph__core" />
+        </div>
+      )}
+      {locked && accessState !== 'entering' && <section className={`access-gate access-gate--${accessState}`} aria-label="Private access">
         <div className="access-gate__orb" aria-hidden="true"><span /></div>
         <p className="eyebrow">MYAPPAI // PRIVATE OPERATOR NETWORK</p>
         <h1>Enter the command center.</h1>
