@@ -641,12 +641,12 @@ async function commitRemoteInstruction(env, instruction) {
     filePath,
     deployment: {
       status: 'queued',
-      strategy: 'github-main-push',
+      strategy: 'cloudflare-pages-git-integration',
       branch: commit.branch,
       commitSha: commit.commitSha,
       commitUrl: commit.commitUrl,
       message:
-        'Committed to GitHub. Cloudflare Pages should deploy the connected branch automatically.',
+        'Committed to the main source branch. Cloudflare Pages deploys the connected branch automatically.',
     },
   }
 }
@@ -684,7 +684,7 @@ async function handleRemotePromptCommand(env, payload) {
     affectedPaths: [committed.filePath],
     deployment: committed.deployment,
     nextSteps: [
-      'Wait for the connected Pages deployment to finish.',
+      'Wait for the connected Cloudflare Pages deployment to finish.',
       'Refresh the site after the new production deployment completes.',
     ],
     details: {
@@ -694,7 +694,7 @@ async function handleRemotePromptCommand(env, payload) {
           'Interpret prompt',
           'Generate safe single-file patch',
           'Commit to GitHub',
-          'Let the connected production branch deploy',
+          'Let Cloudflare Pages deploy the connected production branch',
         ],
       },
       instruction: {
@@ -742,15 +742,15 @@ async function handleRemoteStructuredCommand(env, payload) {
       affectedPaths: [command.targetPath],
       deployment: {
         status: 'queued',
-        strategy: 'github-main-push',
+        strategy: 'cloudflare-pages-git-integration',
         branch: commit.branch,
         commitSha: commit.commitSha,
         commitUrl: commit.commitUrl,
         message:
-          'Committed to GitHub. Cloudflare Pages should deploy the connected branch automatically.',
+          'Committed to the main source branch. Cloudflare Pages deploys the connected branch automatically.',
       },
       nextSteps: [
-        'Wait for the connected Pages deployment to finish.',
+        'Wait for the connected Cloudflare Pages deployment to finish.',
         'Refresh the site after production deploy completes.',
       ],
       details: {
