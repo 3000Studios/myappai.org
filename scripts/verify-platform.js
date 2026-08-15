@@ -1,4 +1,5 @@
 import './lib/loadEnvironment.js'
+import './validate-cloudflare-deployment-policy.js'
 import { validateCommand } from '../ai/router/commandRouter.js'
 import {
   bootstrapContent,

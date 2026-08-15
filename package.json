@@ -41,6 +41,7 @@
     "check:fast": "npm run lint && npm run typecheck && npm run test:unit",
     "check:full": "npm run validate:env && npm run lint && npm run typecheck && npm run test && npm run build",
     "validate:env": "node scripts/validate-environment.js",
+    "validate:deployment-policy": "node scripts/validate-cloudflare-deployment-policy.js",
     "verify-platform": "node scripts/verify-platform.js",
     "analyze": "cross-env ANALYZE=true vite build",
     "ci": "npm run check:full"

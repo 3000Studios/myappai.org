@@ -105,6 +105,9 @@ The system must prioritize:
 - Production builds must use `npm run build`
 - Production output should be generated in `dist/`
 - This project is configured for a single production branch workflow, so changes pushed to `main` may go live immediately
+- GitHub is source control only. GitHub Actions, GitHub Pages, and all non-Cloudflare deployment providers are prohibited.
+- The enforced production sequence is: validate -> commit canonical `main` -> push -> Cloudflare native Git integration deploys -> visually verify the real custom domain.
+- A GitHub workflow that deploys or hosts is a policy failure. `npm run validate:deployment-policy` must pass before a release is committed.
 
 ## Commit Rules
 
