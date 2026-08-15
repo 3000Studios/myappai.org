@@ -16,7 +16,7 @@ function getAdminEmail() {
 }
 
 function getAdminPasscode() {
-  return String(process.env.ADMIN_PASSCODE ?? '5555').trim()
+  return String(process.env.ADMIN_PASSCODE ?? '').trim()
 }
 
 function getAdminApiKey() {
@@ -180,6 +180,25 @@ export function validateAdminCredentials(email, code, adminKey = '') {
     email: configuredEmail,
     authMode: 'email-passcode',
   }
+}
+
+export function validatePrivateAccessPassword(password) {
+  const configuredPassword = String(
+    process.env.CONTROL_GATE_PASSWORD ?? process.env.ADMIN_PASSCODE ?? ''
+  ).trim()
+
+  if (!configuredPassword) {
+    return {
+      ok: false,
+      message: 'CONTROL_GATE_PASSWORD must be configured before private access can be used.',
+    }
+  }
+
+  if (String(password ?? '').trim() !== configuredPassword) {
+    return { ok: false, message: 'Invalid private access password.' }
+  }
+
+  return { ok: true, email: getAdminEmail() || 'private-operator' }
 }
 
 export function readAdminSession(request) {

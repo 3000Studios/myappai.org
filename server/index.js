@@ -7,6 +7,7 @@ import commandRoutes from './routes/commandRoutes.js'
 import adminAuthRoutes from './routes/adminAuthRoutes.js'
 import publicRoutes from './routes/publicRoutes.js'
 import openclawRoutes from './routes/openclaw.js'
+import privateAccessRoutes from './routes/privateAccessRoutes.js'
 import { bootstrapContent } from './services/contentService.js'
 import { recordUnhandledServerError } from './services/selfHealService.js'
 
@@ -28,6 +29,7 @@ app.get('/api/health', async (_request, response) => {
 
 app.use('/api/public', publicRoutes)
 app.use('/api/admin', adminAuthRoutes)
+app.use('/api/access', privateAccessRoutes)
 app.use('/api', commandRoutes)
 app.use('/api/openclaw', openclawRoutes)
 
