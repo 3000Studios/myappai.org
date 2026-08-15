@@ -793,6 +793,21 @@ export async function handleRemoteOperatorCommand(request, env) {
 
   const payload = await request.json().catch(() => ({}))
 
+  if (payload?.projectId && payload.projectId !== 'myappai') {
+    return jsonResponse(
+      buildRemoteOperatorResult({
+        mode: 'project_routing',
+        status: 'unavailable',
+        summary: 'This project is recognized and staged, but its repository-specific execution connector is not configured yet.',
+        nextSteps: [
+          'Keep the mission draft visible for review.',
+          'Add the project allowlist, GitHub repository scope, and Cloudflare verification rules before enabling remote writes.',
+        ],
+      }),
+      503
+    )
+  }
+
   try {
     const result =
       typeof payload?.command === 'string' && payload.command.trim()
