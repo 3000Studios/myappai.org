@@ -71,6 +71,7 @@ export default function CommandCenterPage() {
   const [speechState, setSpeechState] = useState('Voice ready when you are.')
   const [dispatch, setDispatch] = useState([])
   const [showDispatch, setShowDispatch] = useState(false)
+  const [operatorResult, setOperatorResult] = useState(null)
   const recognitionRef = useRef(null)
   const silenceTimerRef = useRef(null)
 
@@ -80,6 +81,7 @@ export default function CommandCenterPage() {
     setCommand(task)
     setShowDispatch(true)
     setDispatch([])
+    setOperatorResult({ status: 'sending', summary: 'Sending mission to the secured operator queue…' })
     dispatchSteps.forEach(([agent, message], index) => {
       window.setTimeout(() => {
         setDispatch((current) => [...current, { agent, message, task }])
@@ -90,7 +92,21 @@ export default function CommandCenterPage() {
       headers: { 'content-type': 'application/json' },
       credentials: 'include',
       body: JSON.stringify({ command: task, source: 'command-center' }),
-    }).catch(() => {})
+    })
+      .then(async (response) => {
+        const payload = await response.json().catch(() => ({}))
+        setOperatorResult({
+          status: payload.status ?? (response.ok ? 'accepted' : 'unavailable'),
+          summary: payload.summary ?? payload.message ?? 'The operator did not return a status message.',
+          nextSteps: payload.nextSteps ?? [],
+        })
+      })
+      .catch(() => {
+        setOperatorResult({
+          status: 'offline',
+          summary: 'The secured operator endpoint could not be reached. Your mission remains staged in this window.',
+        })
+      })
   }, [command])
 
   const stopListening = useCallback(() => {
@@ -112,7 +128,7 @@ export default function CommandCenterPage() {
     let finalTranscript = ''
     recognition.onstart = () => {
       setListening(true)
-      setSpeechState('Listening. I will prepare the mission after three seconds of silence.')
+      setSpeechState('Listening. I will prepare the mission after ten seconds of silence.')
     }
     recognition.onresult = (event) => {
       let interim = ''
@@ -128,7 +144,7 @@ export default function CommandCenterPage() {
         const mission = `${finalTranscript}${interim}`.trim()
         if (mission) submitCommand(mission)
         stopListening()
-      }, 3000)
+      }, 10000)
     }
     recognition.onerror = (event) => {
       setListening(false)
@@ -209,6 +225,7 @@ export default function CommandCenterPage() {
         </section>
       </section>}
       {showDispatch && <aside className="dispatch-window" role="status" aria-live="polite"><header><span>LIVE MISSION DISPATCH</span><button onClick={() => setShowDispatch(false)} aria-label="Close dispatch">×</button></header><p className="dispatch-window__task">{command}</p>{dispatch.map((item) => <div className="dispatch-row" key={item.agent}><strong>{item.agent}</strong><span>{item.message}</span><i>ACTIVE</i></div>)}{dispatch.length === dispatchSteps.length && <p className="dispatch-window__notice">Mission is staged for the secured operator queue. Review and approve production-impacting actions before execution.</p>}</aside>}
+      {showDispatch && operatorResult && <div className={`operator-result operator-result--${operatorResult.status}`} role="status" aria-live="polite"><strong>{operatorResult.status.toUpperCase()}</strong><span>{operatorResult.summary}</span>{operatorResult.nextSteps?.map((step) => <small key={step}>{step}</small>)}</div>}
     </main>
   )
 }
