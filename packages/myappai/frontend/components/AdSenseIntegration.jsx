@@ -27,7 +27,7 @@ const AdSenseIntegration = () => {
 
     // Initialize AdSense
     ;(window.adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: 'ca-pub-YOUR-PUBLISHER-ID',
+      google_ad_client: 'ca-pub-5800977493749262',
       enable_page_level_ads: true,
     })
 
@@ -46,7 +46,7 @@ const AdSenseIntegration = () => {
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-YOUR-PUBLISHER-ID"
+        data-ad-client="ca-pub-5800977493749262"
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive ? 'true' : 'false'}
