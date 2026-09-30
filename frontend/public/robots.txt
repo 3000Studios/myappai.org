@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
-User-agent: Mediapartners-Google
-Allow: /
-
-Sitemap: https://myappai.org/sitemap.xml
+Sitemap: https://voicetowebsite.com/sitemap.xml
