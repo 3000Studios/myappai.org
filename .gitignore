@@ -20,3 +20,10 @@ dist
 .tmp-pagesdev-out.log
 .tmp-pagesdev-err.log
 .cache
+
+# generated dumps (never commit)
+workspace_report.txt
+cf_deploy.json
+cf_deployments.json
+cf_latest.json
+cf_status.json
