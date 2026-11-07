@@ -37,6 +37,9 @@ async function collectRoutes() {
     .filter(
       (slug) => !['homepage', 'theme', 'platform', 'pricing'].includes(slug)
     )
+    // growth-system-* content drops have no public route in the app, so
+    // advertising them in the sitemap sends crawlers to not-found pages.
+    .filter((slug) => !slug.startsWith('growth-system-'))
     .map((slug) => `/${slug}`)
 
   const blogRoutes = blogEntries

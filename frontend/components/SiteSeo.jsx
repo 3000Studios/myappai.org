@@ -62,7 +62,7 @@ function removeIfPresent(id) {
   document.getElementById(id)?.remove()
 }
 
-function getSeoForPath(pathname) {
+export function getSeoForPath(pathname) {
   const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '')
   const canonicalUrl =
     normalizedPath === '/' ? SITE_URL : `${SITE_URL}${normalizedPath}`
@@ -189,9 +189,43 @@ function getSeoForPath(pathname) {
     }
   }
 
-  if (['/guides', '/about', '/contact', '/privacy', '/disclosure', '/terms'].includes(normalizedPath)) {
+  const trustPageSeo = {
+    '/guides': {
+      title: `Guides | ${SITE_DISPLAY_NAME}`,
+      description:
+        'Guides, tool picks, and monetization references for building an automated publishing site: writing, infrastructure, workflow automation, and monetization support.',
+    },
+    '/about': {
+      title: `About | ${SITE_DISPLAY_NAME}`,
+      description:
+        'MyAppAI is an independent publishing brand focused on AI content systems, editorial automation, monetization strategy, and the practical work required to keep an ad-ready site useful.',
+    },
+    '/contact': {
+      title: `Contact | ${SITE_DISPLAY_NAME}`,
+      description:
+        'Reach out about editorial partnerships, sponsorships, site acquisitions, or questions about the publishing systems documented on MyAppAI.',
+    },
+    '/privacy': {
+      title: `Privacy Policy | ${SITE_DISPLAY_NAME}`,
+      description:
+        'How MyAppAI handles analytics, advertising cookies including Google AdSense and the DoubleClick cookie, contact forms, and your privacy choices.',
+    },
+    '/disclosure': {
+      title: `Advertising & Affiliate Disclosure | ${SITE_DISPLAY_NAME}`,
+      description:
+        'MyAppAI is built to support display advertising, sponsorships, and carefully selected affiliate relationships. This page explains how they are disclosed.',
+    },
+    '/terms': {
+      title: `Terms of Use | ${SITE_DISPLAY_NAME}`,
+      description:
+        'These terms explain how visitors may use MyAppAI and its editorial resources.',
+    },
+  }
+
+  if (trustPageSeo[normalizedPath]) {
     return {
       ...base,
+      ...trustPageSeo[normalizedPath],
       noindex: false,
       adsEligible: ['/guides', '/about', '/contact'].includes(normalizedPath),
     }

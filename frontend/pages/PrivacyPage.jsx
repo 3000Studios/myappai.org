@@ -56,6 +56,37 @@ export default function PrivacyPage() {
       </section>
 
       <section className="prose-section">
+        <h2>Google AdSense and the DoubleClick cookie</h2>
+        <p>
+          This site uses Google AdSense. Google, as a third-party vendor, uses
+          cookies to serve ads on this site. Google&apos;s use of the
+          DoubleClick cookie enables Google and its partners to serve ads based
+          on your visits to this site and/or other sites on the Internet.
+        </p>
+        <p>
+          You may opt out of the use of the DoubleClick cookie for
+          interest-based advertising by visiting{' '}
+          <a
+            href="https://adssettings.google.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Google Ads Settings
+          </a>
+          . You can also opt out of some third-party vendors&apos; use of
+          cookies for interest-based advertising at{' '}
+          <a
+            href="https://aboutads.info"
+            target="_blank"
+            rel="noreferrer"
+          >
+            aboutads.info
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="prose-section">
         <h2>Your choices</h2>
         <p>
           You can decline optional cookies where a consent choice is presented,
