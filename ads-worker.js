@@ -7,7 +7,7 @@ export default {
     const url = new URL(request.url)
 
     if (url.pathname === '/ads.txt') {
-      const adsTxtContent = 'google.com, pub-5800977493749262, DIRECT, f08c47fec0942fa0'
+      const adsTxtContent = 'google.com, pub-5800977493749262, DIRECT, f08c47fec0942fa0\n'
 
       return new Response(adsTxtContent, {
         headers: {
