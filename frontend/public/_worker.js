@@ -16,7 +16,7 @@ const JSON_HEADERS = {
   'cache-control': 'no-store',
 }
 const ADS_TXT_CONTENT =
-  'google.com, pub-5800977493749262, DIRECT, f08c47fec0942fa0'
+  'google.com, pub-5800977493749262, DIRECT, f08c47fec0942fa0\n'
 const textEncoder = new TextEncoder()
 const textDecoder = new TextDecoder()
 
